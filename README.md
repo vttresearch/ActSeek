@@ -14,6 +14,9 @@ ActSeek is a tool for enzyme mining in the Alphafold database. ActSeek uses the 
 Install the required libraries using `pip`:
 
 ```sh
+pip install numpy biopython tqdm wget requests
+pip install cython
+pip install scipy
 pip install .
 
 ```
