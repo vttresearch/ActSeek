@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-from actseek.ActSeekLib_cy import  ransac_protein, Active_site
-from actseek.ActSeek_cy import read_pdbs, printProtein, ActSeekMain, read_config 
+from actseek.ActSeekLib_cy import  ransac_protein, Active_site, getGlobalDistance
+from actseek.ActSeek_cy import read_pdbs
 
 class TestActSeek(unittest.TestCase):
     def test_ActSeek(self):
@@ -98,7 +98,10 @@ class TestActSeek(unittest.TestCase):
         self.assertEqual(t_transformed[354][1], -16.73018974792045)
         self.assertEqual(t_transformed[354][2], 19.488264657200983)
 
-        
+        rmsd, minrmsd, percentage= getGlobalDistance(t_transformed, seed_coords)
+        self.assertEqual(rmsd, 0.8482906222343445)  
+        self.assertEqual(minrmsd, 1.6663724464229028)    
+        self.assertEqual(percentage, 0.6591549295774648) 
       
 
 if __name__ == '__main__':
