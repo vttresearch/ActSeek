@@ -14,6 +14,7 @@ import wget
 import requests
 import json
 import tempfile
+import unittest
 
 warnings.filterwarnings("ignore")
 
@@ -350,6 +351,7 @@ def main():
 
             files = os.listdir(config.random_dir)
             results = open(config.path_results+"/results.csv","w")
+            results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural similarity, Structural RMSD, Percentage structural mapping\n")
             for file in files:
                 f = open(config.random_dir+"/"+file, "r")
                 for line in f:
