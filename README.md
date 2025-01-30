@@ -23,17 +23,11 @@ pip install .
 The packages required are:
 
 numpy
-
 biopython
-
 tqdm
-
 wget
-
 requests
-
 scipy
-
 cython
 
 ## Usage
@@ -90,4 +84,73 @@ The program accepts several command line arguments to override the configuration
 
 -ts, --testing: Testing one protein. This argument takes the Uniprot Id of the protein and returns the structure of the protein aligned with the seed structure. 
 
+### Needed files
+- Seed pdb file (in tests it is AF-Q9ZHI2-F1-model_v4.pdb)
+- List of Uniprot ids (in tests it is test.txt)
+- config.json file for the configuration that can be introduced also in the command line.
 
+### Config.json
+
+{
+
+    "active_site": "292,448,478",
+    
+    "selected_active": "0,1,2",
+    
+    "aa_grouping": {
+        "GLY": "GLY",
+        "ALA": "ALA",
+        "PRO": "PRO",
+        "ARG": "ARG",
+        "HIS": "HIS",
+        "LYS": "LYS",
+        "ASP": "ASP",
+        "GLU": "GLU",
+        "SER": "SER",
+        "THR": "THR",
+        "ASN": "ASN",
+        "GLN": "GLN",
+        "CYS": "CYS",
+        "VAL": "VAL",
+        "ILE": "ILE",
+        "LEU": "LEU",
+        "MET": "MET",
+        "PHE": "PHE",
+        "TYR": "TYR",
+        "TRP": "TRP",
+        "HSD": "HIS"
+    },
+    
+    "random_seed": 0,
+    
+    "threshold": 1.0,
+    
+    "threshold_combinations": 3.0,
+    
+    "aa_surrounding": 4,
+    
+    "aa_surrounding_threshold": 3.0,
+    
+    "threshold_others": 4.0,
+    
+    "iterations": 2000,
+    
+    "first_in_file": 0,
+    
+    "max_protein": 10000,
+    
+    "protein_file": "test.txt",
+    
+    "alphafold_proteins_path": "structures",
+    
+    "seed_protein_file": "AF-Q9ZHI2-F1-model_v4.pdb",
+    
+    "delete_protein_files": true,
+    
+    "path_results": "results",
+    
+    "testing": ""
+    
+}
+
+To perform a search where two or more amino acids can be in interchangeble, change the values of the aa_grouping variable to be the same.
