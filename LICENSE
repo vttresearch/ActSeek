@@ -1,0 +1,62 @@
+			ActSeek  Non-Commercial License Agreement
+
+The ActSeek software ("Software") has been developed and made available by VTT for noncommercial,
+non-profit use. For more information about the ActSeek Commons, please see NETPAGE. If you wish
+to use the Software for any commercial purposes, including fee-based service projects, you will
+need to execute a separate licensing agreement with the VTT and pay a fee. In that case, 
+please contact: ip.agreements@vtt.fi
+
+The Software was developed through support of the Jane and Aatos Erkko Foundation (JAES) under 
+project 220048 (Virtual laboratory for Biodesign, JAES-BIODESIGN) 
+
+			“Non-Commercial User” means 
+			
+1) employees of not-for-profit research institutions, government laboratories, and universities 
+conducting research excluding 
+	(a) commercial service; or
+	(b) contract research or services for a for profit company where the intellectual property 
+	resulting from such research or service is owned by the for-profit company , and 
+	
+2) individuals excluding 
+	(a) any use by, for, or on behalf of an entity organized for profit; or 	
+	(b) any use intended for or directed toward commercial advantage or monetary compensation.
+	
+	
+	
+“Software” includes both source and executable copies of the ActSeek software as distributed by VTT
+VTT grant Non-Commercial Users the rights to perform, display, reproduce and modify the Software solely
+for internal Non-Commercial purposes, on the following conditions:
+
+    1. You shall not distribute the Software or any modifications to the Software. As an exception, 
+     you may fork official ActSeek Commons repositories and make modifications to the source code in 
+     such forks on the same version control platform on which those official repositories are hosted.
+     
+    2. You retain in Software and any modifications to Software, all copyright, trademark, or other 
+     notices pertaining to Software as provided by VTT.
+     
+    3. You acknowledge that VTT and its licensees may develop modifications to Software that may be 
+     substantially similar to your modifications of Software, and that the VTT and its licensees shall
+     not be constrained in any way by you, VTT's or its licensees' use or management of such      
+     modifications. You acknowledge the right of the VTT to prepare and publish modifications to Software
+     that may be substantially similar or functionally equivalent to your modifications and improvements,
+     and if you obtain patent protection for any modification or improvement to Software you agree not
+     to allege or enjoin infringement of your patent by the VTT or by any of VTT's licensees obtaining 
+     modifications or improvements to Software from the VTT.
+     
+    4. You agree to acknowledge the contribution of the the Software make to your research, and cite 
+     appropriate references about the Software in your publications (see CITING_ACTSEEK.md).
+     
+    5. Any risk associated with using the Software is with you and/or your institution. Software is 
+     experimental in nature and is made available as a research courtesy "AS IS," without obligation 
+     by VTT to provide accompanying services or support.
+     
+    6. VTT AND THE DEVELOPERS EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES REGARDING THE SOFTWARE, WHETHER
+     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES PERTAINING TO NON-INFRINGEMENT, 
+     MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL VTT OR THE DEVELOPERS BE
+     LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+     (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+     OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+     CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+     THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
