@@ -36,7 +36,7 @@ scipy
 
 cython
 
-### Usage
+## Usage
 
 To test ActSeek after its installation:
 ```sh
@@ -50,7 +50,7 @@ It will create a folder "results" with the results of the search.
 Doing you own search:
 Edit the json configuration file "config.json". 
 
-#### comman line arguments
+### comman line arguments
 
 The program accepts several command line arguments to override the configuration file:
 
