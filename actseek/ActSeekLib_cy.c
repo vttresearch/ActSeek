@@ -3136,7 +3136,8 @@ static const char __pyx_k_d[] = "d";
 static const char __pyx_k_e[] = "e";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k_j[] = "j";
-static const char __pyx_k__9[] = ".";
+static const char __pyx_k__7[] = ".";
+static const char __pyx_k__9[] = "*";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_mp[] = "mp";
 static const char __pyx_k_np[] = "np";
@@ -3170,8 +3171,7 @@ static const char __pyx_k_THR[] = "THR";
 static const char __pyx_k_TRP[] = "TRP";
 static const char __pyx_k_TYR[] = "TYR";
 static const char __pyx_k_VAL[] = "VAL";
-static const char __pyx_k__11[] = "*";
-static const char __pyx_k__80[] = "?";
+static const char __pyx_k__78[] = "?";
 static const char __pyx_k_det[] = "det";
 static const char __pyx_k_dim[] = "dim";
 static const char __pyx_k_dot[] = "dot";
@@ -3645,9 +3645,9 @@ typedef struct {
   PyObject *__pyx_n_s_TRP;
   PyObject *__pyx_n_s_TYR;
   PyObject *__pyx_n_s_VAL;
-  PyObject *__pyx_n_s__11;
-  PyObject *__pyx_n_s__80;
-  PyObject *__pyx_kp_u__9;
+  PyObject *__pyx_kp_u__7;
+  PyObject *__pyx_n_s__78;
+  PyObject *__pyx_n_s__9;
   PyObject *__pyx_n_s_actseek_ActSeekLib_cy;
   PyObject *__pyx_kp_s_actseek_ActSeekLib_cy_pyx;
   PyObject *__pyx_n_s_actseek_grid;
@@ -3917,16 +3917,15 @@ typedef struct {
   PyObject *__pyx_tuple__4;
   PyObject *__pyx_tuple__5;
   PyObject *__pyx_tuple__6;
-  PyObject *__pyx_tuple__7;
   PyObject *__pyx_tuple__8;
   PyObject *__pyx_tuple__10;
-  PyObject *__pyx_tuple__12;
-  PyObject *__pyx_tuple__13;
+  PyObject *__pyx_tuple__11;
+  PyObject *__pyx_tuple__14;
   PyObject *__pyx_tuple__16;
-  PyObject *__pyx_tuple__18;
+  PyObject *__pyx_tuple__19;
   PyObject *__pyx_tuple__21;
   PyObject *__pyx_tuple__23;
-  PyObject *__pyx_tuple__25;
+  PyObject *__pyx_tuple__27;
   PyObject *__pyx_tuple__29;
   PyObject *__pyx_tuple__31;
   PyObject *__pyx_tuple__33;
@@ -3935,7 +3934,7 @@ typedef struct {
   PyObject *__pyx_tuple__39;
   PyObject *__pyx_tuple__41;
   PyObject *__pyx_tuple__43;
-  PyObject *__pyx_tuple__45;
+  PyObject *__pyx_tuple__47;
   PyObject *__pyx_tuple__49;
   PyObject *__pyx_tuple__51;
   PyObject *__pyx_tuple__53;
@@ -3950,16 +3949,16 @@ typedef struct {
   PyObject *__pyx_tuple__71;
   PyObject *__pyx_tuple__73;
   PyObject *__pyx_tuple__75;
-  PyObject *__pyx_tuple__77;
-  PyObject *__pyx_codeobj__14;
+  PyObject *__pyx_codeobj__12;
+  PyObject *__pyx_codeobj__13;
   PyObject *__pyx_codeobj__15;
   PyObject *__pyx_codeobj__17;
-  PyObject *__pyx_codeobj__19;
+  PyObject *__pyx_codeobj__18;
   PyObject *__pyx_codeobj__20;
   PyObject *__pyx_codeobj__22;
   PyObject *__pyx_codeobj__24;
+  PyObject *__pyx_codeobj__25;
   PyObject *__pyx_codeobj__26;
-  PyObject *__pyx_codeobj__27;
   PyObject *__pyx_codeobj__28;
   PyObject *__pyx_codeobj__30;
   PyObject *__pyx_codeobj__32;
@@ -3969,8 +3968,8 @@ typedef struct {
   PyObject *__pyx_codeobj__40;
   PyObject *__pyx_codeobj__42;
   PyObject *__pyx_codeobj__44;
+  PyObject *__pyx_codeobj__45;
   PyObject *__pyx_codeobj__46;
-  PyObject *__pyx_codeobj__47;
   PyObject *__pyx_codeobj__48;
   PyObject *__pyx_codeobj__50;
   PyObject *__pyx_codeobj__52;
@@ -3986,8 +3985,7 @@ typedef struct {
   PyObject *__pyx_codeobj__72;
   PyObject *__pyx_codeobj__74;
   PyObject *__pyx_codeobj__76;
-  PyObject *__pyx_codeobj__78;
-  PyObject *__pyx_codeobj__79;
+  PyObject *__pyx_codeobj__77;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -4117,9 +4115,9 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_TRP);
   Py_CLEAR(clear_module_state->__pyx_n_s_TYR);
   Py_CLEAR(clear_module_state->__pyx_n_s_VAL);
-  Py_CLEAR(clear_module_state->__pyx_n_s__11);
-  Py_CLEAR(clear_module_state->__pyx_n_s__80);
-  Py_CLEAR(clear_module_state->__pyx_kp_u__9);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__7);
+  Py_CLEAR(clear_module_state->__pyx_n_s__78);
+  Py_CLEAR(clear_module_state->__pyx_n_s__9);
   Py_CLEAR(clear_module_state->__pyx_n_s_actseek_ActSeekLib_cy);
   Py_CLEAR(clear_module_state->__pyx_kp_s_actseek_ActSeekLib_cy_pyx);
   Py_CLEAR(clear_module_state->__pyx_n_s_actseek_grid);
@@ -4389,16 +4387,15 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__4);
   Py_CLEAR(clear_module_state->__pyx_tuple__5);
   Py_CLEAR(clear_module_state->__pyx_tuple__6);
-  Py_CLEAR(clear_module_state->__pyx_tuple__7);
   Py_CLEAR(clear_module_state->__pyx_tuple__8);
   Py_CLEAR(clear_module_state->__pyx_tuple__10);
-  Py_CLEAR(clear_module_state->__pyx_tuple__12);
-  Py_CLEAR(clear_module_state->__pyx_tuple__13);
+  Py_CLEAR(clear_module_state->__pyx_tuple__11);
+  Py_CLEAR(clear_module_state->__pyx_tuple__14);
   Py_CLEAR(clear_module_state->__pyx_tuple__16);
-  Py_CLEAR(clear_module_state->__pyx_tuple__18);
+  Py_CLEAR(clear_module_state->__pyx_tuple__19);
   Py_CLEAR(clear_module_state->__pyx_tuple__21);
   Py_CLEAR(clear_module_state->__pyx_tuple__23);
-  Py_CLEAR(clear_module_state->__pyx_tuple__25);
+  Py_CLEAR(clear_module_state->__pyx_tuple__27);
   Py_CLEAR(clear_module_state->__pyx_tuple__29);
   Py_CLEAR(clear_module_state->__pyx_tuple__31);
   Py_CLEAR(clear_module_state->__pyx_tuple__33);
@@ -4407,7 +4404,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__39);
   Py_CLEAR(clear_module_state->__pyx_tuple__41);
   Py_CLEAR(clear_module_state->__pyx_tuple__43);
-  Py_CLEAR(clear_module_state->__pyx_tuple__45);
+  Py_CLEAR(clear_module_state->__pyx_tuple__47);
   Py_CLEAR(clear_module_state->__pyx_tuple__49);
   Py_CLEAR(clear_module_state->__pyx_tuple__51);
   Py_CLEAR(clear_module_state->__pyx_tuple__53);
@@ -4422,16 +4419,16 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__71);
   Py_CLEAR(clear_module_state->__pyx_tuple__73);
   Py_CLEAR(clear_module_state->__pyx_tuple__75);
-  Py_CLEAR(clear_module_state->__pyx_tuple__77);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__14);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__12);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__13);
   Py_CLEAR(clear_module_state->__pyx_codeobj__15);
   Py_CLEAR(clear_module_state->__pyx_codeobj__17);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__19);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__18);
   Py_CLEAR(clear_module_state->__pyx_codeobj__20);
   Py_CLEAR(clear_module_state->__pyx_codeobj__22);
   Py_CLEAR(clear_module_state->__pyx_codeobj__24);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__25);
   Py_CLEAR(clear_module_state->__pyx_codeobj__26);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__27);
   Py_CLEAR(clear_module_state->__pyx_codeobj__28);
   Py_CLEAR(clear_module_state->__pyx_codeobj__30);
   Py_CLEAR(clear_module_state->__pyx_codeobj__32);
@@ -4441,8 +4438,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__40);
   Py_CLEAR(clear_module_state->__pyx_codeobj__42);
   Py_CLEAR(clear_module_state->__pyx_codeobj__44);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__45);
   Py_CLEAR(clear_module_state->__pyx_codeobj__46);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__47);
   Py_CLEAR(clear_module_state->__pyx_codeobj__48);
   Py_CLEAR(clear_module_state->__pyx_codeobj__50);
   Py_CLEAR(clear_module_state->__pyx_codeobj__52);
@@ -4458,8 +4455,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__72);
   Py_CLEAR(clear_module_state->__pyx_codeobj__74);
   Py_CLEAR(clear_module_state->__pyx_codeobj__76);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__78);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__79);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__77);
   return 0;
 }
 #endif
@@ -4567,9 +4563,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_TRP);
   Py_VISIT(traverse_module_state->__pyx_n_s_TYR);
   Py_VISIT(traverse_module_state->__pyx_n_s_VAL);
-  Py_VISIT(traverse_module_state->__pyx_n_s__11);
-  Py_VISIT(traverse_module_state->__pyx_n_s__80);
-  Py_VISIT(traverse_module_state->__pyx_kp_u__9);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__7);
+  Py_VISIT(traverse_module_state->__pyx_n_s__78);
+  Py_VISIT(traverse_module_state->__pyx_n_s__9);
   Py_VISIT(traverse_module_state->__pyx_n_s_actseek_ActSeekLib_cy);
   Py_VISIT(traverse_module_state->__pyx_kp_s_actseek_ActSeekLib_cy_pyx);
   Py_VISIT(traverse_module_state->__pyx_n_s_actseek_grid);
@@ -4839,16 +4835,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__4);
   Py_VISIT(traverse_module_state->__pyx_tuple__5);
   Py_VISIT(traverse_module_state->__pyx_tuple__6);
-  Py_VISIT(traverse_module_state->__pyx_tuple__7);
   Py_VISIT(traverse_module_state->__pyx_tuple__8);
   Py_VISIT(traverse_module_state->__pyx_tuple__10);
-  Py_VISIT(traverse_module_state->__pyx_tuple__12);
-  Py_VISIT(traverse_module_state->__pyx_tuple__13);
+  Py_VISIT(traverse_module_state->__pyx_tuple__11);
+  Py_VISIT(traverse_module_state->__pyx_tuple__14);
   Py_VISIT(traverse_module_state->__pyx_tuple__16);
-  Py_VISIT(traverse_module_state->__pyx_tuple__18);
+  Py_VISIT(traverse_module_state->__pyx_tuple__19);
   Py_VISIT(traverse_module_state->__pyx_tuple__21);
   Py_VISIT(traverse_module_state->__pyx_tuple__23);
-  Py_VISIT(traverse_module_state->__pyx_tuple__25);
+  Py_VISIT(traverse_module_state->__pyx_tuple__27);
   Py_VISIT(traverse_module_state->__pyx_tuple__29);
   Py_VISIT(traverse_module_state->__pyx_tuple__31);
   Py_VISIT(traverse_module_state->__pyx_tuple__33);
@@ -4857,7 +4852,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__39);
   Py_VISIT(traverse_module_state->__pyx_tuple__41);
   Py_VISIT(traverse_module_state->__pyx_tuple__43);
-  Py_VISIT(traverse_module_state->__pyx_tuple__45);
+  Py_VISIT(traverse_module_state->__pyx_tuple__47);
   Py_VISIT(traverse_module_state->__pyx_tuple__49);
   Py_VISIT(traverse_module_state->__pyx_tuple__51);
   Py_VISIT(traverse_module_state->__pyx_tuple__53);
@@ -4872,16 +4867,16 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__71);
   Py_VISIT(traverse_module_state->__pyx_tuple__73);
   Py_VISIT(traverse_module_state->__pyx_tuple__75);
-  Py_VISIT(traverse_module_state->__pyx_tuple__77);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__14);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__12);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__13);
   Py_VISIT(traverse_module_state->__pyx_codeobj__15);
   Py_VISIT(traverse_module_state->__pyx_codeobj__17);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__19);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__18);
   Py_VISIT(traverse_module_state->__pyx_codeobj__20);
   Py_VISIT(traverse_module_state->__pyx_codeobj__22);
   Py_VISIT(traverse_module_state->__pyx_codeobj__24);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__25);
   Py_VISIT(traverse_module_state->__pyx_codeobj__26);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__27);
   Py_VISIT(traverse_module_state->__pyx_codeobj__28);
   Py_VISIT(traverse_module_state->__pyx_codeobj__30);
   Py_VISIT(traverse_module_state->__pyx_codeobj__32);
@@ -4891,8 +4886,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__40);
   Py_VISIT(traverse_module_state->__pyx_codeobj__42);
   Py_VISIT(traverse_module_state->__pyx_codeobj__44);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__45);
   Py_VISIT(traverse_module_state->__pyx_codeobj__46);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__47);
   Py_VISIT(traverse_module_state->__pyx_codeobj__48);
   Py_VISIT(traverse_module_state->__pyx_codeobj__50);
   Py_VISIT(traverse_module_state->__pyx_codeobj__52);
@@ -4908,8 +4903,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__72);
   Py_VISIT(traverse_module_state->__pyx_codeobj__74);
   Py_VISIT(traverse_module_state->__pyx_codeobj__76);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__78);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__79);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__77);
   return 0;
 }
 #endif
@@ -5045,9 +5039,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_TRP __pyx_mstate_global->__pyx_n_s_TRP
 #define __pyx_n_s_TYR __pyx_mstate_global->__pyx_n_s_TYR
 #define __pyx_n_s_VAL __pyx_mstate_global->__pyx_n_s_VAL
-#define __pyx_n_s__11 __pyx_mstate_global->__pyx_n_s__11
-#define __pyx_n_s__80 __pyx_mstate_global->__pyx_n_s__80
-#define __pyx_kp_u__9 __pyx_mstate_global->__pyx_kp_u__9
+#define __pyx_kp_u__7 __pyx_mstate_global->__pyx_kp_u__7
+#define __pyx_n_s__78 __pyx_mstate_global->__pyx_n_s__78
+#define __pyx_n_s__9 __pyx_mstate_global->__pyx_n_s__9
 #define __pyx_n_s_actseek_ActSeekLib_cy __pyx_mstate_global->__pyx_n_s_actseek_ActSeekLib_cy
 #define __pyx_kp_s_actseek_ActSeekLib_cy_pyx __pyx_mstate_global->__pyx_kp_s_actseek_ActSeekLib_cy_pyx
 #define __pyx_n_s_actseek_grid __pyx_mstate_global->__pyx_n_s_actseek_grid
@@ -5317,16 +5311,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__4 __pyx_mstate_global->__pyx_tuple__4
 #define __pyx_tuple__5 __pyx_mstate_global->__pyx_tuple__5
 #define __pyx_tuple__6 __pyx_mstate_global->__pyx_tuple__6
-#define __pyx_tuple__7 __pyx_mstate_global->__pyx_tuple__7
 #define __pyx_tuple__8 __pyx_mstate_global->__pyx_tuple__8
 #define __pyx_tuple__10 __pyx_mstate_global->__pyx_tuple__10
-#define __pyx_tuple__12 __pyx_mstate_global->__pyx_tuple__12
-#define __pyx_tuple__13 __pyx_mstate_global->__pyx_tuple__13
+#define __pyx_tuple__11 __pyx_mstate_global->__pyx_tuple__11
+#define __pyx_tuple__14 __pyx_mstate_global->__pyx_tuple__14
 #define __pyx_tuple__16 __pyx_mstate_global->__pyx_tuple__16
-#define __pyx_tuple__18 __pyx_mstate_global->__pyx_tuple__18
+#define __pyx_tuple__19 __pyx_mstate_global->__pyx_tuple__19
 #define __pyx_tuple__21 __pyx_mstate_global->__pyx_tuple__21
 #define __pyx_tuple__23 __pyx_mstate_global->__pyx_tuple__23
-#define __pyx_tuple__25 __pyx_mstate_global->__pyx_tuple__25
+#define __pyx_tuple__27 __pyx_mstate_global->__pyx_tuple__27
 #define __pyx_tuple__29 __pyx_mstate_global->__pyx_tuple__29
 #define __pyx_tuple__31 __pyx_mstate_global->__pyx_tuple__31
 #define __pyx_tuple__33 __pyx_mstate_global->__pyx_tuple__33
@@ -5335,7 +5328,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__39 __pyx_mstate_global->__pyx_tuple__39
 #define __pyx_tuple__41 __pyx_mstate_global->__pyx_tuple__41
 #define __pyx_tuple__43 __pyx_mstate_global->__pyx_tuple__43
-#define __pyx_tuple__45 __pyx_mstate_global->__pyx_tuple__45
+#define __pyx_tuple__47 __pyx_mstate_global->__pyx_tuple__47
 #define __pyx_tuple__49 __pyx_mstate_global->__pyx_tuple__49
 #define __pyx_tuple__51 __pyx_mstate_global->__pyx_tuple__51
 #define __pyx_tuple__53 __pyx_mstate_global->__pyx_tuple__53
@@ -5350,16 +5343,16 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__71 __pyx_mstate_global->__pyx_tuple__71
 #define __pyx_tuple__73 __pyx_mstate_global->__pyx_tuple__73
 #define __pyx_tuple__75 __pyx_mstate_global->__pyx_tuple__75
-#define __pyx_tuple__77 __pyx_mstate_global->__pyx_tuple__77
-#define __pyx_codeobj__14 __pyx_mstate_global->__pyx_codeobj__14
+#define __pyx_codeobj__12 __pyx_mstate_global->__pyx_codeobj__12
+#define __pyx_codeobj__13 __pyx_mstate_global->__pyx_codeobj__13
 #define __pyx_codeobj__15 __pyx_mstate_global->__pyx_codeobj__15
 #define __pyx_codeobj__17 __pyx_mstate_global->__pyx_codeobj__17
-#define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
+#define __pyx_codeobj__18 __pyx_mstate_global->__pyx_codeobj__18
 #define __pyx_codeobj__20 __pyx_mstate_global->__pyx_codeobj__20
 #define __pyx_codeobj__22 __pyx_mstate_global->__pyx_codeobj__22
 #define __pyx_codeobj__24 __pyx_mstate_global->__pyx_codeobj__24
+#define __pyx_codeobj__25 __pyx_mstate_global->__pyx_codeobj__25
 #define __pyx_codeobj__26 __pyx_mstate_global->__pyx_codeobj__26
-#define __pyx_codeobj__27 __pyx_mstate_global->__pyx_codeobj__27
 #define __pyx_codeobj__28 __pyx_mstate_global->__pyx_codeobj__28
 #define __pyx_codeobj__30 __pyx_mstate_global->__pyx_codeobj__30
 #define __pyx_codeobj__32 __pyx_mstate_global->__pyx_codeobj__32
@@ -5369,8 +5362,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__40 __pyx_mstate_global->__pyx_codeobj__40
 #define __pyx_codeobj__42 __pyx_mstate_global->__pyx_codeobj__42
 #define __pyx_codeobj__44 __pyx_mstate_global->__pyx_codeobj__44
+#define __pyx_codeobj__45 __pyx_mstate_global->__pyx_codeobj__45
 #define __pyx_codeobj__46 __pyx_mstate_global->__pyx_codeobj__46
-#define __pyx_codeobj__47 __pyx_mstate_global->__pyx_codeobj__47
 #define __pyx_codeobj__48 __pyx_mstate_global->__pyx_codeobj__48
 #define __pyx_codeobj__50 __pyx_mstate_global->__pyx_codeobj__50
 #define __pyx_codeobj__52 __pyx_mstate_global->__pyx_codeobj__52
@@ -5386,8 +5379,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__72 __pyx_mstate_global->__pyx_codeobj__72
 #define __pyx_codeobj__74 __pyx_mstate_global->__pyx_codeobj__74
 #define __pyx_codeobj__76 __pyx_mstate_global->__pyx_codeobj__76
-#define __pyx_codeobj__78 __pyx_mstate_global->__pyx_codeobj__78
-#define __pyx_codeobj__79 __pyx_mstate_global->__pyx_codeobj__79
+#define __pyx_codeobj__77 __pyx_mstate_global->__pyx_codeobj__77
 /* #### Code section: module_code ### */
 
 /* "../../miniforge3/lib/python3.12/site-packages/numpy/__init__.cython-30.pxd":287
@@ -25139,7 +25131,7 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
  * 
  * 
  *         if len(indices) == 0:             # <<<<<<<<<<<<<<
- *             return 100.0, 100.0, 100.0
+ *             return 100.0, 100.0, 100.0,[],[]
  * 
  */
       if (unlikely(__pyx_v_indices == Py_None)) {
@@ -25153,26 +25145,47 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
         /* "actseek/ActSeekLib_cy.pyx":865
  * 
  *         if len(indices) == 0:
- *             return 100.0, 100.0, 100.0             # <<<<<<<<<<<<<<
+ *             return 100.0, 100.0, 100.0,[],[]             # <<<<<<<<<<<<<<
  * 
  *         rmsd = np.mean(distances)
  */
         __Pyx_XDECREF(__pyx_r);
-        __Pyx_INCREF(__pyx_tuple__6);
-        __pyx_r = __pyx_tuple__6;
+        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 865, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 865, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_5 = PyTuple_New(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 865, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx_float_100_0);
+        __Pyx_GIVEREF(__pyx_float_100_0);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_float_100_0)) __PYX_ERR(0, 865, __pyx_L3_error);
+        __Pyx_INCREF(__pyx_float_100_0);
+        __Pyx_GIVEREF(__pyx_float_100_0);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_float_100_0)) __PYX_ERR(0, 865, __pyx_L3_error);
+        __Pyx_INCREF(__pyx_float_100_0);
+        __Pyx_GIVEREF(__pyx_float_100_0);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_float_100_0)) __PYX_ERR(0, 865, __pyx_L3_error);
+        __Pyx_GIVEREF(__pyx_t_4);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_4)) __PYX_ERR(0, 865, __pyx_L3_error);
+        __Pyx_GIVEREF(__pyx_t_6);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_t_6)) __PYX_ERR(0, 865, __pyx_L3_error);
+        __pyx_t_4 = 0;
+        __pyx_t_6 = 0;
+        __pyx_r = __pyx_t_5;
+        __pyx_t_5 = 0;
         goto __pyx_L7_try_return;
 
         /* "actseek/ActSeekLib_cy.pyx":864
  * 
  * 
  *         if len(indices) == 0:             # <<<<<<<<<<<<<<
- *             return 100.0, 100.0, 100.0
+ *             return 100.0, 100.0, 100.0,[],[]
  * 
  */
       }
 
       /* "actseek/ActSeekLib_cy.pyx":867
- *             return 100.0, 100.0, 100.0
+ *             return 100.0, 100.0, 100.0,[],[]
  * 
  *         rmsd = np.mean(distances)             # <<<<<<<<<<<<<<
  *         coverage = len(indices) / len(coords1)
@@ -25180,33 +25193,33 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
  */
       __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 867, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_mean); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 867, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_mean); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 867, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_6 = NULL;
       __pyx_t_12 = 0;
       #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_5))) {
-        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (unlikely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
         if (likely(__pyx_t_6)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
           __Pyx_INCREF(__pyx_t_6);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_5, function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
           __pyx_t_12 = 1;
         }
       }
       #endif
       {
         PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_v_distances};
-        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_12, 1+__pyx_t_12);
+        __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_12, 1+__pyx_t_12);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 867, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 867, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
-      __pyx_t_9 = __pyx_PyFloat_AsFloat(__pyx_t_4); if (unlikely((__pyx_t_9 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 867, __pyx_L3_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_9 = __pyx_PyFloat_AsFloat(__pyx_t_5); if (unlikely((__pyx_t_9 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 867, __pyx_L3_error)
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_rmsd = __pyx_t_9;
 
       /* "actseek/ActSeekLib_cy.pyx":868
@@ -25214,7 +25227,7 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
  *         rmsd = np.mean(distances)
  *         coverage = len(indices) / len(coords1)             # <<<<<<<<<<<<<<
  * 
- *         return score, rmsd / coverage, coverage
+ *         return score, rmsd / coverage, coverage, distances, indices
  */
       if (unlikely(__pyx_v_indices == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
@@ -25231,31 +25244,37 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
       /* "actseek/ActSeekLib_cy.pyx":870
  *         coverage = len(indices) / len(coords1)
  * 
- *         return score, rmsd / coverage, coverage             # <<<<<<<<<<<<<<
+ *         return score, rmsd / coverage, coverage, distances, indices             # <<<<<<<<<<<<<<
  * 
  *     except Exception:
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = PyFloat_FromDouble(__pyx_v_score); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 870, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_5 = PyFloat_FromDouble(__pyx_v_score); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 870, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_5);
       if (unlikely(__pyx_v_coverage == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "float division");
         __PYX_ERR(0, 870, __pyx_L3_error)
       }
-      __pyx_t_5 = PyFloat_FromDouble((((double)__pyx_v_rmsd) / __pyx_v_coverage)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 870, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_4 = PyFloat_FromDouble((((double)__pyx_v_rmsd) / __pyx_v_coverage)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 870, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = PyFloat_FromDouble(__pyx_v_coverage); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 870, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 870, __pyx_L3_error)
+      __pyx_t_7 = PyTuple_New(5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 870, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_GIVEREF(__pyx_t_4);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4)) __PYX_ERR(0, 870, __pyx_L3_error);
       __Pyx_GIVEREF(__pyx_t_5);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_5)) __PYX_ERR(0, 870, __pyx_L3_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5)) __PYX_ERR(0, 870, __pyx_L3_error);
+      __Pyx_GIVEREF(__pyx_t_4);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_4)) __PYX_ERR(0, 870, __pyx_L3_error);
       __Pyx_GIVEREF(__pyx_t_6);
       if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_t_6)) __PYX_ERR(0, 870, __pyx_L3_error);
-      __pyx_t_4 = 0;
+      __Pyx_INCREF(__pyx_v_distances);
+      __Pyx_GIVEREF(__pyx_v_distances);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 3, __pyx_v_distances)) __PYX_ERR(0, 870, __pyx_L3_error);
+      __Pyx_INCREF(__pyx_v_indices);
+      __Pyx_GIVEREF(__pyx_v_indices);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_7, 4, __pyx_v_indices)) __PYX_ERR(0, 870, __pyx_L3_error);
       __pyx_t_5 = 0;
+      __pyx_t_4 = 0;
       __pyx_t_6 = 0;
       __pyx_r = __pyx_t_7;
       __pyx_t_7 = 0;
@@ -25276,25 +25295,25 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
     /* "actseek/ActSeekLib_cy.pyx":872
- *         return score, rmsd / coverage, coverage
+ *         return score, rmsd / coverage, coverage, distances, indices
  * 
  *     except Exception:             # <<<<<<<<<<<<<<
  *         traceback.print_exc()
- *         return 40.0, 100.0, 100.0
+ *         return 40.0, 100.0, 100.0,[],[]
  */
     __pyx_t_14 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
     if (__pyx_t_14) {
       __Pyx_AddTraceback("actseek.ActSeekLib_cy.getGlobalDistance", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_6, &__pyx_t_5) < 0) __PYX_ERR(0, 872, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_6, &__pyx_t_4) < 0) __PYX_ERR(0, 872, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_6);
-      __Pyx_XGOTREF(__pyx_t_5);
+      __Pyx_XGOTREF(__pyx_t_4);
 
       /* "actseek/ActSeekLib_cy.pyx":873
  * 
  *     except Exception:
  *         traceback.print_exc()             # <<<<<<<<<<<<<<
- *         return 40.0, 100.0, 100.0
+ *         return 40.0, 100.0, 100.0,[],[]
  * 
  */
       __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_n_s_traceback); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 873, __pyx_L5_except_error)
@@ -25318,25 +25337,46 @@ static PyObject *__pyx_f_7actseek_13ActSeekLib_cy_getGlobalDistance(PyArrayObjec
       #endif
       {
         PyObject *__pyx_callargs[2] = {__pyx_t_15, NULL};
-        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_16, __pyx_callargs+1-__pyx_t_12, 0+__pyx_t_12);
+        __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_16, __pyx_callargs+1-__pyx_t_12, 0+__pyx_t_12);
         __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 873, __pyx_L5_except_error)
-        __Pyx_GOTREF(__pyx_t_4);
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 873, __pyx_L5_except_error)
+        __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
       }
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
       /* "actseek/ActSeekLib_cy.pyx":874
  *     except Exception:
  *         traceback.print_exc()
- *         return 40.0, 100.0, 100.0             # <<<<<<<<<<<<<<
+ *         return 40.0, 100.0, 100.0,[],[]             # <<<<<<<<<<<<<<
  * 
  * 
  */
       __Pyx_XDECREF(__pyx_r);
-      __Pyx_INCREF(__pyx_tuple__7);
-      __pyx_r = __pyx_tuple__7;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 874, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_16 = PyList_New(0); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 874, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_16);
+      __pyx_t_15 = PyTuple_New(5); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 874, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_15);
+      __Pyx_INCREF(__pyx_float_40_0);
+      __Pyx_GIVEREF(__pyx_float_40_0);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 0, __pyx_float_40_0)) __PYX_ERR(0, 874, __pyx_L5_except_error);
+      __Pyx_INCREF(__pyx_float_100_0);
+      __Pyx_GIVEREF(__pyx_float_100_0);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 1, __pyx_float_100_0)) __PYX_ERR(0, 874, __pyx_L5_except_error);
+      __Pyx_INCREF(__pyx_float_100_0);
+      __Pyx_GIVEREF(__pyx_float_100_0);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 2, __pyx_float_100_0)) __PYX_ERR(0, 874, __pyx_L5_except_error);
+      __Pyx_GIVEREF(__pyx_t_5);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 3, __pyx_t_5)) __PYX_ERR(0, 874, __pyx_L5_except_error);
+      __Pyx_GIVEREF(__pyx_t_16);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_15, 4, __pyx_t_16)) __PYX_ERR(0, 874, __pyx_L5_except_error);
+      __pyx_t_5 = 0;
+      __pyx_t_16 = 0;
+      __pyx_r = __pyx_t_15;
+      __pyx_t_15 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L6_except_return;
@@ -25696,7 +25736,7 @@ static PyObject *__pyx_pf_7actseek_13ActSeekLib_cy_28__pyx_unpickle_Amino_acid(C
  */
   __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__8, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(2, 4, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__6, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(2, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
@@ -26195,7 +26235,7 @@ static PyObject *__pyx_pf_7actseek_13ActSeekLib_cy_30__pyx_unpickle_Active_site(
  */
   __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__10, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(2, 4, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__8, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(2, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
@@ -27515,9 +27555,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_TRP, __pyx_k_TRP, sizeof(__pyx_k_TRP), 0, 0, 1, 1},
     {&__pyx_n_s_TYR, __pyx_k_TYR, sizeof(__pyx_k_TYR), 0, 0, 1, 1},
     {&__pyx_n_s_VAL, __pyx_k_VAL, sizeof(__pyx_k_VAL), 0, 0, 1, 1},
-    {&__pyx_n_s__11, __pyx_k__11, sizeof(__pyx_k__11), 0, 0, 1, 1},
-    {&__pyx_n_s__80, __pyx_k__80, sizeof(__pyx_k__80), 0, 0, 1, 1},
-    {&__pyx_kp_u__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0, 0},
+    {&__pyx_kp_u__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0, 0},
+    {&__pyx_n_s__78, __pyx_k__78, sizeof(__pyx_k__78), 0, 0, 1, 1},
+    {&__pyx_n_s__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 0, 1, 1},
     {&__pyx_n_s_actseek_ActSeekLib_cy, __pyx_k_actseek_ActSeekLib_cy, sizeof(__pyx_k_actseek_ActSeekLib_cy), 0, 0, 1, 1},
     {&__pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_k_actseek_ActSeekLib_cy_pyx, sizeof(__pyx_k_actseek_ActSeekLib_cy_pyx), 0, 0, 1, 0},
     {&__pyx_n_s_actseek_grid, __pyx_k_actseek_grid, sizeof(__pyx_k_actseek_grid), 0, 0, 1, 1},
@@ -27837,28 +27877,6 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "actseek/ActSeekLib_cy.pyx":865
- * 
- *         if len(indices) == 0:
- *             return 100.0, 100.0, 100.0             # <<<<<<<<<<<<<<
- * 
- *         rmsd = np.mean(distances)
- */
-  __pyx_tuple__6 = PyTuple_Pack(3, __pyx_float_100_0, __pyx_float_100_0, __pyx_float_100_0); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 865, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-
-  /* "actseek/ActSeekLib_cy.pyx":874
- *     except Exception:
- *         traceback.print_exc()
- *         return 40.0, 100.0, 100.0             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_tuple__7 = PyTuple_Pack(3, __pyx_float_40_0, __pyx_float_100_0, __pyx_float_100_0); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 874, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__7);
-  __Pyx_GIVEREF(__pyx_tuple__7);
-
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
@@ -27866,12 +27884,12 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError, "Incompatible checksums (0x%x vs (0x4f20ccd, 0x62e4441, 0x06d8c8b) = (amino_acid_class, amino_acid_id, coords, distances, index, real_index))" % __pyx_checksum
  */
-  __pyx_tuple__8 = PyTuple_Pack(3, __pyx_int_82971853, __pyx_int_103695425, __pyx_int_7179403); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(2, 4, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(3, __pyx_int_82971853, __pyx_int_103695425, __pyx_int_7179403); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(2, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
+  __pyx_tuple__8 = PyTuple_Pack(3, __pyx_int_28654766, __pyx_int_184836577, __pyx_int_264221584); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(2, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_tuple__10 = PyTuple_Pack(3, __pyx_int_28654766, __pyx_int_184836577, __pyx_int_264221584); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(2, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__10);
-  __Pyx_GIVEREF(__pyx_tuple__10);
 
   /* "actseek/ActSeekLib_cy.pyx":11
  * 
@@ -27880,9 +27898,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * config = None
  */
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_n_s_ignore); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__12);
-  __Pyx_GIVEREF(__pyx_tuple__12);
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_ignore); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
 
   /* "actseek/ActSeekLib_cy.pyx":42
  *         self.distances = {}
@@ -27891,10 +27909,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *         Get the amino acid 3D coordinate
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_coords, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_coords, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 42, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":48
  *         return self.coords
@@ -27903,7 +27921,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *         Get the amino acid class. It can be the amino acid identity or the class of amino acid (the classes are defined in the variable aa_des)
  */
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_class, 48, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_class, 48, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 48, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":54
  *         return self.amino_acid_class
@@ -27912,10 +27930,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *         populates the distances dictionary with the distance from this amino acid to other amino acids of different classes.
  */
-  __pyx_tuple__16 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_coord, __pyx_n_s_amino_acid_class, __pyx_n_s_dist); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 54, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_set_distances, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_coord, __pyx_n_s_amino_acid_class, __pyx_n_s_dist); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__14);
+  __Pyx_GIVEREF(__pyx_tuple__14);
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_set_distances, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 54, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":67
  *             self.distances[amino_acid_class] = dist
@@ -27924,10 +27942,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *         Get the distances from this amino acid to other amino acids of specific class.
  */
-  __pyx_tuple__18 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_amino_acid_class); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 67, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__18);
-  __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_distance, 67, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_amino_acid_class); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__16);
+  __Pyx_GIVEREF(__pyx_tuple__16);
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_distance, 67, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 67, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":76
  *             return None
@@ -27936,17 +27954,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *         Returns the amino acid index
  */
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_by_index, 76, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_by_index, 76, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 76, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__21 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__21);
-  __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__19);
+  __Pyx_GIVEREF(__pyx_tuple__19);
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -27954,10 +27972,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Amino_acid__set_state(self, __pyx_state)
  */
-  __pyx_tuple__23 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__23);
-  __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__21);
+  __Pyx_GIVEREF(__pyx_tuple__21);
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":104
  *         self.set_self_distance()
@@ -27966,10 +27984,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef int amino_acid_index
  *         cdef str amino_acid_id
  */
-  __pyx_tuple__25 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_amino_acid_index, __pyx_n_s_amino_acid_id, __pyx_n_s_amino_acid, __pyx_n_s_index, __pyx_n_s_j); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__25);
-  __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_add_amino_acids, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_amino_acid_index, __pyx_n_s_amino_acid_id, __pyx_n_s_amino_acid, __pyx_n_s_index, __pyx_n_s_j); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__23);
+  __Pyx_GIVEREF(__pyx_tuple__23);
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_add_amino_acids, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 104, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":119
  * 
@@ -27978,7 +27996,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return len(self.amino_acid_list)
  * 
  */
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_Number_AA, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_Number_AA, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 119, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":122
  *         return len(self.amino_acid_list)
@@ -27987,7 +28005,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self.amino_acid_list
  * 
  */
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_AA, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_AA, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 122, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":125
  *         return self.amino_acid_list
@@ -27996,10 +28014,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef list groups
  *         cdef object amino_acid
  */
-  __pyx_tuple__29 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_unique, __pyx_n_s_groups, __pyx_n_s_amino_acid); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__29);
-  __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_AA_groups, 125, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_unique, __pyx_n_s_groups, __pyx_n_s_amino_acid); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__27);
+  __Pyx_GIVEREF(__pyx_tuple__27);
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_AA_groups, 125, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 125, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":137
  *             return groups
@@ -28008,10 +28026,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef list class_list
  *         cdef object amino_acid
  */
-  __pyx_tuple__31 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_amino_acid_class, __pyx_n_s_class_list, __pyx_n_s_amino_acid, __pyx_n_s_group); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 137, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__31);
-  __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_AAs_of_class, 137, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_tuple__29 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_amino_acid_class, __pyx_n_s_class_list, __pyx_n_s_amino_acid, __pyx_n_s_group); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__29);
+  __Pyx_GIVEREF(__pyx_tuple__29);
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_AAs_of_class, 137, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 137, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":147
  *                 class_list.append(amino_acid)
@@ -28020,10 +28038,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef object amino_acid
  *         cdef object amino_acid2
  */
-  __pyx_tuple__33 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_amino_acid, __pyx_n_s_amino_acid2); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 147, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__33);
-  __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_set_self_distance, 147, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_tuple__31 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_amino_acid, __pyx_n_s_amino_acid2); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__31);
+  __Pyx_GIVEREF(__pyx_tuple__31);
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_set_self_distance, 147, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 147, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":155
  *                     amino_acid.set_distances(amino_acid2.coords, amino_acid2.get_class())
@@ -28032,10 +28050,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef list distances_list
  *         cdef object amino_acid
  */
-  __pyx_tuple__35 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_amino_acid_class, __pyx_n_s_amino_acid_class2, __pyx_n_s_distances_list, __pyx_n_s_amino_acid, __pyx_n_s_distances, __pyx_n_s_d); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__35);
-  __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_distances, 155, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_amino_acid_class, __pyx_n_s_amino_acid_class2, __pyx_n_s_distances_list, __pyx_n_s_amino_acid, __pyx_n_s_distances, __pyx_n_s_d); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__33);
+  __Pyx_GIVEREF(__pyx_tuple__33);
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_distances, 155, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 155, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":167
  *         return distances_list
@@ -28044,10 +28062,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef object amino_acid
  *         for amino_acid in self.amino_acid_list:
  */
-  __pyx_tuple__37 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_index, __pyx_n_s_amino_acid); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 167, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__37);
-  __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_aa_by_index, 167, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_index, __pyx_n_s_amino_acid); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__35);
+  __Pyx_GIVEREF(__pyx_tuple__35);
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_aa_by_index, 167, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 167, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":173
  *                 return amino_acid
@@ -28056,10 +28074,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *         It finds all the amino acids from the case protein that belong of the same classes represented in the list of amino acids used for the search.
  */
-  __pyx_tuple__39 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_case_protein, __pyx_n_s_case_protein_amino_acids, __pyx_n_s_real_index, __pyx_n_s_correspondences, __pyx_n_s_amino_acid1, __pyx_n_s_amino_acid2); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__39);
-  __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_possible_correspondences, 173, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_tuple__37 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_case_protein, __pyx_n_s_case_protein_amino_acids, __pyx_n_s_real_index, __pyx_n_s_correspondences, __pyx_n_s_amino_acid1, __pyx_n_s_amino_acid2); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__37);
+  __Pyx_GIVEREF(__pyx_tuple__37);
+  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_possible_correspondences, 173, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 173, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":192
  *         return correspondences
@@ -28068,10 +28086,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         cdef float distance
  * 
  */
-  __pyx_tuple__41 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_distance1, __pyx_n_s_distances, __pyx_n_s_threshold, __pyx_n_s_distance); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 192, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__41);
-  __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_check_distances, 192, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_distance1, __pyx_n_s_distances, __pyx_n_s_threshold, __pyx_n_s_distance); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__39);
+  __Pyx_GIVEREF(__pyx_tuple__39);
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_check_distances, 192, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 192, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":205
  *         return False
@@ -28080,10 +28098,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return np.linalg.norm(protein_coords[index1] - protein_coords[index2])
  * 
  */
-  __pyx_tuple__43 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_index1, __pyx_n_s_index2, __pyx_n_s_protein_coords); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 205, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__43);
-  __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_distance_in_case_prote, 205, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_index1, __pyx_n_s_index2, __pyx_n_s_protein_coords); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__41);
+  __Pyx_GIVEREF(__pyx_tuple__41);
+  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_distance_in_case_prote, 205, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 205, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":210
  * 
@@ -28092,17 +28110,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Using the correspondences calculated in "get_possible_correspondences", it creates combinations of 3.
  */
-  __pyx_tuple__45 = PyTuple_Pack(19, __pyx_n_s_self, __pyx_n_s_correspondences, __pyx_n_s_protein_coords, __pyx_n_s_case_protein_amino_acid_dict, __pyx_n_s_real_index, __pyx_n_s_threshold, __pyx_n_s_amino_acid_groups, __pyx_n_s_combinations, __pyx_n_s_valid_combinations, __pyx_n_s_combo, __pyx_n_s_dist1, __pyx_n_s_dist2, __pyx_n_s_dist3, __pyx_n_s_distances1, __pyx_n_s_distances2, __pyx_n_s_distances3, __pyx_n_s_distinct_classes, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 210, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__45);
-  __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_all_possible_combinations, 210, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(19, __pyx_n_s_self, __pyx_n_s_correspondences, __pyx_n_s_protein_coords, __pyx_n_s_case_protein_amino_acid_dict, __pyx_n_s_real_index, __pyx_n_s_threshold, __pyx_n_s_amino_acid_groups, __pyx_n_s_combinations, __pyx_n_s_valid_combinations, __pyx_n_s_combo, __pyx_n_s_dist1, __pyx_n_s_dist2, __pyx_n_s_dist3, __pyx_n_s_distances1, __pyx_n_s_distances2, __pyx_n_s_distances3, __pyx_n_s_distinct_classes, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__43);
+  __Pyx_GIVEREF(__pyx_tuple__43);
+  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_all_possible_combinations, 210, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 210, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28110,7 +28128,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Active_site__set_state(self, __pyx_state)
  */
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":266
  * 
@@ -28119,10 +28137,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     cdef tuple selected_combination
  *     cdef list search_coords
  */
-  __pyx_tuple__49 = PyTuple_Pack(6, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_combinations, __pyx_n_s_index); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 266, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__49);
-  __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_euclidean_transformation_fit, 266, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_tuple__47 = PyTuple_Pack(6, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_combinations, __pyx_n_s_index); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__47);
+  __Pyx_GIVEREF(__pyx_tuple__47);
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_euclidean_transformation_fit, 266, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 266, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":295
  * 
@@ -28131,10 +28149,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     # Center the point sets
  */
-  __pyx_tuple__51 = PyTuple_Pack(2, __pyx_n_s_points1, __pyx_n_s_points2); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 295, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__51);
-  __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_estimate_alignment, 295, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(2, __pyx_n_s_points1, __pyx_n_s_points2); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__49);
+  __Pyx_GIVEREF(__pyx_tuple__49);
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_estimate_alignment, 295, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 295, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":339
  * 
@@ -28143,10 +28161,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Calculate distances between transformed case protein coordinates and search alpha carbon coordinates,
  */
-  __pyx_tuple__53 = PyTuple_Pack(3, __pyx_n_s_transformed_case_protein_coords, __pyx_n_s_search_alphac_coords, __pyx_n_s_threshold); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 339, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__53);
-  __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_distances, 339, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_tuple__51 = PyTuple_Pack(3, __pyx_n_s_transformed_case_protein_coords, __pyx_n_s_search_alphac_coords, __pyx_n_s_threshold); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__51);
+  __Pyx_GIVEREF(__pyx_tuple__51);
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_distances, 339, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 339, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":371
  * 
@@ -28155,10 +28173,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     return np.linalg.norm(case_protein_coords[index1] - case_protein_coords[index2])
  * 
  */
-  __pyx_tuple__55 = PyTuple_Pack(3, __pyx_n_s_index1, __pyx_n_s_index2, __pyx_n_s_case_protein_coords); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 371, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__55);
-  __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_distance_single, 371, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 371, __pyx_L1_error)
+  __pyx_tuple__53 = PyTuple_Pack(3, __pyx_n_s_index1, __pyx_n_s_index2, __pyx_n_s_case_protein_coords); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 371, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__53);
+  __Pyx_GIVEREF(__pyx_tuple__53);
+  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_distance_single, 371, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 371, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":377
  * 
@@ -28167,10 +28185,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Calculate the final distance between the transformed case protein coordinates and the search coordinates. The variable search_alphac_coords_all is different from search_alphac_coords as it contains all the amino acids defined by the user,
  */
-  __pyx_tuple__57 = PyTuple_Pack(31, __pyx_n_s_search_alphac_coords_all, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_valid_combinations, __pyx_n_s_index, __pyx_n_s_amino_acid_groups, __pyx_n_s_case_protein_dict, __pyx_n_s_real_index, __pyx_n_s_search_amino_acids_dict, __pyx_n_s_search_indexes, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_threshold, __pyx_n_s_translation_vector, __pyx_n_s_rotation, __pyx_n_s_mapsel, __pyx_n_s_t_transformed, __pyx_n_s_dist, __pyx_n_s_indices, __pyx_n_s_distance_sum, __pyx_n_s_mapping, __pyx_n_s_distances, __pyx_n_s_amino_acid_groups_case, __pyx_n_s_amino_acid_groups_search, __pyx_n_s_e, __pyx_n_s_valid_indices, __pyx_n_s_minindex, __pyx_n_s_ind, __pyx_n_s_e, __pyx_n_s_i, __pyx_n_s_ind); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 377, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__57);
-  __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(13, 0, 0, 31, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_final_distance, 377, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __pyx_tuple__55 = PyTuple_Pack(31, __pyx_n_s_search_alphac_coords_all, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_valid_combinations, __pyx_n_s_index, __pyx_n_s_amino_acid_groups, __pyx_n_s_case_protein_dict, __pyx_n_s_real_index, __pyx_n_s_search_amino_acids_dict, __pyx_n_s_search_indexes, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_threshold, __pyx_n_s_translation_vector, __pyx_n_s_rotation, __pyx_n_s_mapsel, __pyx_n_s_t_transformed, __pyx_n_s_dist, __pyx_n_s_indices, __pyx_n_s_distance_sum, __pyx_n_s_mapping, __pyx_n_s_distances, __pyx_n_s_amino_acid_groups_case, __pyx_n_s_amino_acid_groups_search, __pyx_n_s_e, __pyx_n_s_valid_indices, __pyx_n_s_minindex, __pyx_n_s_ind, __pyx_n_s_e, __pyx_n_s_i, __pyx_n_s_ind); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__55);
+  __Pyx_GIVEREF(__pyx_tuple__55);
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(13, 0, 0, 31, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_calculate_final_distance, 377, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 377, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":460
  * 
@@ -28179,10 +28197,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Calculate the sum and mean of distances between "number_of_surrounding" number of corresponding amino acids in two protein structures surrounding the amino acids selected for the search.
  */
-  __pyx_tuple__59 = PyTuple_Pack(7, __pyx_n_s_case_protein_coords, __pyx_n_s_search_protein_coords, __pyx_n_s_mapping, __pyx_n_s_search_real_index, __pyx_n_s_search_indexes, __pyx_n_s_number_of_surrounding, __pyx_n_s_printing); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 460, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__59);
-  __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_distance_around, 460, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 460, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(7, __pyx_n_s_case_protein_coords, __pyx_n_s_search_protein_coords, __pyx_n_s_mapping, __pyx_n_s_search_real_index, __pyx_n_s_search_indexes, __pyx_n_s_number_of_surrounding, __pyx_n_s_printing); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 460, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__57);
+  __Pyx_GIVEREF(__pyx_tuple__57);
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_distance_around, 460, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 460, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":513
  * 
@@ -28191,10 +28209,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *                 real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords, search_betac_coords, number_of_surrounding, threshold, printing):
  *     """
  */
-  __pyx_tuple__61 = PyTuple_Pack(40, __pyx_n_s_search_alphac_coords_all, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_search_protein_coords, __pyx_n_s_valid_combinations, __pyx_n_s_iterations, __pyx_n_s_amino_acids_groups, __pyx_n_s_case_protein_dict, __pyx_n_s_real_index, __pyx_n_s_search_real_index, __pyx_n_s_search_amino_acids_dict, __pyx_n_s_search_indexes, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_number_of_surrounding, __pyx_n_s_threshold, __pyx_n_s_printing, __pyx_n_s_max_distance, __pyx_n_s_solution, __pyx_n_s_distances_selected, __pyx_n_s_translation_matrix, __pyx_n_s_rotation_matrix, __pyx_n_s_case_protein_transformed_final, __pyx_n_s_final_distances_arround, __pyx_n_s_num_combinations, __pyx_n_s_num_iterations, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_mapping, __pyx_n_s_distances_sum, __pyx_n_s_distances, __pyx_n_s_case_protein_transformed, __pyx_n_s_translation_vector, __pyx_n_s_rotation, __pyx_n_s_mpn, __pyx_n_s_distances_arround_sum, __pyx_n_s_distances_arround_mean, __pyx_n_s_total_distance_sum, __pyx_n_s_avg_distance, __pyx_n_s_mp); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 513, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__61);
-  __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(17, 0, 0, 40, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_ransac_protein, 513, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 513, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(40, __pyx_n_s_search_alphac_coords_all, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_search_protein_coords, __pyx_n_s_valid_combinations, __pyx_n_s_iterations, __pyx_n_s_amino_acids_groups, __pyx_n_s_case_protein_dict, __pyx_n_s_real_index, __pyx_n_s_search_real_index, __pyx_n_s_search_amino_acids_dict, __pyx_n_s_search_indexes, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_number_of_surrounding, __pyx_n_s_threshold, __pyx_n_s_printing, __pyx_n_s_max_distance, __pyx_n_s_solution, __pyx_n_s_distances_selected, __pyx_n_s_translation_matrix, __pyx_n_s_rotation_matrix, __pyx_n_s_case_protein_transformed_final, __pyx_n_s_final_distances_arround, __pyx_n_s_num_combinations, __pyx_n_s_num_iterations, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_mapping, __pyx_n_s_distances_sum, __pyx_n_s_distances, __pyx_n_s_case_protein_transformed, __pyx_n_s_translation_vector, __pyx_n_s_rotation, __pyx_n_s_mpn, __pyx_n_s_distances_arround_sum, __pyx_n_s_distances_arround_mean, __pyx_n_s_total_distance_sum, __pyx_n_s_avg_distance, __pyx_n_s_mp); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 513, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__59);
+  __Pyx_GIVEREF(__pyx_tuple__59);
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(17, 0, 0, 40, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_ransac_protein, 513, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 513, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":591
  * 
@@ -28203,10 +28221,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *                 real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords,search_betac_coords, number_of_surrounding, threshold, printing):
  * 
  */
-  __pyx_tuple__63 = PyTuple_Pack(36, __pyx_n_s_search_alphac_coords_all, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_search_protein_coords, __pyx_n_s_valid_combinations, __pyx_n_s_iterations, __pyx_n_s_amino_acids_groups, __pyx_n_s_case_protein_dict, __pyx_n_s_real_index, __pyx_n_s_search_real_index, __pyx_n_s_search_amino_acids_dict, __pyx_n_s_search_indexes, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_number_of_surrounding, __pyx_n_s_threshold, __pyx_n_s_printing, __pyx_n_s_max_distance, __pyx_n_s_solution, __pyx_n_s_distances_selected, __pyx_n_s_translation_matrix, __pyx_n_s_rotation_matrix, __pyx_n_s_case_protein_transformed_final, __pyx_n_s_distances_arround_mean, __pyx_n_s_final_distances_arround, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_mapping, __pyx_n_s_distances_sum, __pyx_n_s_distances, __pyx_n_s_case_protein_transformed, __pyx_n_s_translation_vector, __pyx_n_s_rotation, __pyx_n_s_mpn, __pyx_n_s_distances_arround_sum, __pyx_n_s_mp); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 591, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__63);
-  __Pyx_GIVEREF(__pyx_tuple__63);
-  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(17, 0, 0, 36, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_ransac_protein, 591, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 591, __pyx_L1_error)
+  __pyx_tuple__61 = PyTuple_Pack(36, __pyx_n_s_search_alphac_coords_all, __pyx_n_s_case_protein_alphac_coords, __pyx_n_s_case_protein_betac_coords, __pyx_n_s_search_protein_coords, __pyx_n_s_valid_combinations, __pyx_n_s_iterations, __pyx_n_s_amino_acids_groups, __pyx_n_s_case_protein_dict, __pyx_n_s_real_index, __pyx_n_s_search_real_index, __pyx_n_s_search_amino_acids_dict, __pyx_n_s_search_indexes, __pyx_n_s_search_alphac_coords, __pyx_n_s_search_betac_coords, __pyx_n_s_number_of_surrounding, __pyx_n_s_threshold, __pyx_n_s_printing, __pyx_n_s_max_distance, __pyx_n_s_solution, __pyx_n_s_distances_selected, __pyx_n_s_translation_matrix, __pyx_n_s_rotation_matrix, __pyx_n_s_case_protein_transformed_final, __pyx_n_s_distances_arround_mean, __pyx_n_s_final_distances_arround, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_mapping, __pyx_n_s_distances_sum, __pyx_n_s_distances, __pyx_n_s_case_protein_transformed, __pyx_n_s_translation_vector, __pyx_n_s_rotation, __pyx_n_s_mpn, __pyx_n_s_distances_arround_sum, __pyx_n_s_mp); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 591, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__61);
+  __Pyx_GIVEREF(__pyx_tuple__61);
+  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(17, 0, 0, 36, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_ransac_protein, 591, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 591, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":646
  * 
@@ -28215,10 +28233,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     atomics = []
  *     atoms_size ={"GLY": "2", "ALA": "2", "PRO": "2.2", "ARG": "5", "HIS": "4.5", "LYS": "4.75", "ASP": "4",
  */
-  __pyx_tuple__65 = PyTuple_Pack(10, __pyx_n_s_protein_coords, __pyx_n_s_protein_coords_cb, __pyx_n_s_protein_amino_acid_dict, __pyx_n_s_real_index, __pyx_n_s_atomics, __pyx_n_s_atoms_size, __pyx_n_s_i, __pyx_n_s_coords, __pyx_n_s_coords2, __pyx_n_s_res); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 646, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__65);
-  __Pyx_GIVEREF(__pyx_tuple__65);
-  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_atomics, 646, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(0, 646, __pyx_L1_error)
+  __pyx_tuple__63 = PyTuple_Pack(10, __pyx_n_s_protein_coords, __pyx_n_s_protein_coords_cb, __pyx_n_s_protein_amino_acid_dict, __pyx_n_s_real_index, __pyx_n_s_atomics, __pyx_n_s_atoms_size, __pyx_n_s_i, __pyx_n_s_coords, __pyx_n_s_coords2, __pyx_n_s_res); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 646, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__63);
+  __Pyx_GIVEREF(__pyx_tuple__63);
+  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_atomics, 646, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 646, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":664
  * 
@@ -28227,10 +28245,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     ligand_cutoff: Union[float, in32t] = 6
  */
-  __pyx_tuple__67 = PyTuple_Pack(16, __pyx_n_s_atomic, __pyx_n_s_ligand_cutoff, __pyx_n_s_volume_cutoff, __pyx_n_s_removal_distance, __pyx_n_s_probe_in, __pyx_n_s_probe_out, __pyx_n_s_step, __pyx_n_s_vertices, __pyx_n_s_dim, __pyx_n_s_nx, __pyx_n_s_ny, __pyx_n_s_nz, __pyx_n_s_rotation, __pyx_n_s_ncav, __pyx_n_s_cavities, __pyx_n_s_residues); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 664, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__67);
-  __Pyx_GIVEREF(__pyx_tuple__67);
-  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 16, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_cavity, 664, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 664, __pyx_L1_error)
+  __pyx_tuple__65 = PyTuple_Pack(16, __pyx_n_s_atomic, __pyx_n_s_ligand_cutoff, __pyx_n_s_volume_cutoff, __pyx_n_s_removal_distance, __pyx_n_s_probe_in, __pyx_n_s_probe_out, __pyx_n_s_step, __pyx_n_s_vertices, __pyx_n_s_dim, __pyx_n_s_nx, __pyx_n_s_ny, __pyx_n_s_nz, __pyx_n_s_rotation, __pyx_n_s_ncav, __pyx_n_s_cavities, __pyx_n_s_residues); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 664, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__65);
+  __Pyx_GIVEREF(__pyx_tuple__65);
+  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 16, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_get_cavity, 664, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(0, 664, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":709
  * 
@@ -28239,10 +28257,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Find the nearest neighbors between two sets of vectors within a given threshold.
  */
-  __pyx_tuple__69 = PyTuple_Pack(3, __pyx_n_s_vector_source, __pyx_n_s_vector_target, __pyx_n_s_threshold); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 709, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__69);
-  __Pyx_GIVEREF(__pyx_tuple__69);
-  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_find_nearest_neighbors, 709, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 709, __pyx_L1_error)
+  __pyx_tuple__67 = PyTuple_Pack(3, __pyx_n_s_vector_source, __pyx_n_s_vector_target, __pyx_n_s_threshold); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 709, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__67);
+  __Pyx_GIVEREF(__pyx_tuple__67);
+  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_find_nearest_neighbors, 709, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 709, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":772
  *     return distances, alignment
@@ -28251,10 +28269,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Scores the given vector.
  */
-  __pyx_tuple__71 = PyTuple_Pack(2, __pyx_n_s_vector, __pyx_n_s_size); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 772, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__71);
-  __Pyx_GIVEREF(__pyx_tuple__71);
-  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_score, 772, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 772, __pyx_L1_error)
+  __pyx_tuple__69 = PyTuple_Pack(2, __pyx_n_s_vector, __pyx_n_s_size); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 772, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__69);
+  __Pyx_GIVEREF(__pyx_tuple__69);
+  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_score, 772, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 772, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":810
  * 
@@ -28263,10 +28281,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     Calculate a weighted score for the given vector.
  */
-  __pyx_tuple__73 = PyTuple_Pack(1, __pyx_n_s_vector); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 810, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__73);
-  __Pyx_GIVEREF(__pyx_tuple__73);
-  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_score_vector, 810, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 810, __pyx_L1_error)
+  __pyx_tuple__71 = PyTuple_Pack(1, __pyx_n_s_vector); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 810, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__71);
+  __Pyx_GIVEREF(__pyx_tuple__71);
+  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_score_vector, 810, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 810, __pyx_L1_error)
 
   /* "actseek/ActSeekLib_cy.pyx":844
  *     return total_score / total_weight
@@ -28275,21 +28293,21 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *     This function calculates the nearest neighbors between two sets of coordinates, computes a score based on the indices of the nearest neighbors, and returns the score, the root mean square deviation (RMSD) normalized by coverage, and the coverage.
  */
-  __pyx_tuple__75 = PyTuple_Pack(2, __pyx_n_s_coords1, __pyx_n_s_coords2); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(0, 844, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__75);
-  __Pyx_GIVEREF(__pyx_tuple__75);
-  __pyx_codeobj__76 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__75, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_getGlobalDistance, 844, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__76)) __PYX_ERR(0, 844, __pyx_L1_error)
+  __pyx_tuple__73 = PyTuple_Pack(2, __pyx_n_s_coords1, __pyx_n_s_coords2); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 844, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__73);
+  __Pyx_GIVEREF(__pyx_tuple__73);
+  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_actseek_ActSeekLib_cy_pyx, __pyx_n_s_getGlobalDistance, 844, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 844, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Amino_acid(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__77 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__77);
-  __Pyx_GIVEREF(__pyx_tuple__77);
-  __pyx_codeobj__78 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__77, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Amino_acid, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__78)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__77, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Active_site, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__75 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__75);
+  __Pyx_GIVEREF(__pyx_tuple__75);
+  __pyx_codeobj__76 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__75, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Amino_acid, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__76)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_codeobj__77 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__75, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Active_site, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__77)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -28969,7 +28987,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_filterwarnings); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -28990,7 +29008,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *         Get the amino acid 3D coordinate
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_3get_coords, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_coords, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_3get_coords, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_coords, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_get_coords, __pyx_t_2) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29003,7 +29021,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *         Get the amino acid class. It can be the amino acid identity or the class of amino acid (the classes are defined in the variable aa_des)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_5get_class, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_class, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_5get_class, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_class, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_get_class, __pyx_t_2) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29016,7 +29034,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *         populates the distances dictionary with the distance from this amino acid to other amino acids of different classes.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_7set_distances, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_set_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_7set_distances, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_set_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_set_distances, __pyx_t_2) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29029,7 +29047,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *         Get the distances from this amino acid to other amino acids of specific class.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_9get_distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_distance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_9get_distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_distance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_get_distance, __pyx_t_2) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29042,7 +29060,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *         Returns the amino acid index
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_11get_by_index, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_by_index, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_11get_by_index, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid_get_by_index, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_get_by_index, __pyx_t_2) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29053,7 +29071,7 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid___reduce_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid___reduce_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29065,7 +29083,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Amino_acid__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid___setstate_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_10Amino_acid_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Amino_acid___setstate_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Amino_acid, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29078,7 +29096,7 @@ if (!__Pyx_RefNanny) {
  *         cdef int amino_acid_index
  *         cdef str amino_acid_id
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_3add_amino_acids, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_add_amino_acids, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_3add_amino_acids, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_add_amino_acids, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_add_amino_acids, __pyx_t_2) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29091,7 +29109,7 @@ if (!__Pyx_RefNanny) {
  *         return len(self.amino_acid_list)
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_5get_Number_AA, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_Number_AA, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_5get_Number_AA, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_Number_AA, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_Number_AA, __pyx_t_2) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29104,7 +29122,7 @@ if (!__Pyx_RefNanny) {
  *         return self.amino_acid_list
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_7get_AA, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_AA, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_7get_AA, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_AA, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_AA, __pyx_t_2) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29117,7 +29135,7 @@ if (!__Pyx_RefNanny) {
  *         cdef list groups
  *         cdef object amino_acid
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_9get_AA_groups, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_AA_groups, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_9get_AA_groups, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_AA_groups, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_AA_groups, __pyx_t_2) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29130,7 +29148,7 @@ if (!__Pyx_RefNanny) {
  *         cdef list class_list
  *         cdef object amino_acid
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_11get_AAs_of_class, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_AAs_of_class, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_11get_AAs_of_class, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_AAs_of_class, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_AAs_of_class, __pyx_t_2) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29143,7 +29161,7 @@ if (!__Pyx_RefNanny) {
  *         cdef object amino_acid
  *         cdef object amino_acid2
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_13set_self_distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_set_self_distance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_13set_self_distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_set_self_distance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_set_self_distance, __pyx_t_2) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29156,7 +29174,7 @@ if (!__Pyx_RefNanny) {
  *         cdef list distances_list
  *         cdef object amino_acid
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_15get_distances, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_15get_distances, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_distances, __pyx_t_2) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29169,7 +29187,7 @@ if (!__Pyx_RefNanny) {
  *         cdef object amino_acid
  *         for amino_acid in self.amino_acid_list:
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_17get_aa_by_index, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_aa_by_index, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_17get_aa_by_index, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_aa_by_index, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_aa_by_index, __pyx_t_2) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29182,7 +29200,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *         It finds all the amino acids from the case protein that belong of the same classes represented in the list of amino acids used for the search.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_19get_possible_correspondences, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_possible_corresp, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_19get_possible_correspondences, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_possible_corresp, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_possible_correspondences, __pyx_t_2) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29195,7 +29213,7 @@ if (!__Pyx_RefNanny) {
  *         cdef float distance
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_21check_distances, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_check_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_21check_distances, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_check_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_check_distances, __pyx_t_2) < 0) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29208,7 +29226,7 @@ if (!__Pyx_RefNanny) {
  *         return np.linalg.norm(protein_coords[index1] - protein_coords[index2])
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_23calculate_distance_in_case_protein, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_calculate_distance_i, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_23calculate_distance_in_case_protein, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_calculate_distance_i, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_calculate_distance_in_case_prote, __pyx_t_2) < 0) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29221,7 +29239,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Using the correspondences calculated in "get_possible_correspondences", it creates combinations of 3.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_25get_all_possible_combinations, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_all_possible_com, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__46)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_25get_all_possible_combinations, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site_get_all_possible_com, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_get_all_possible_combinations, __pyx_t_2) < 0) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29232,7 +29250,7 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_27__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site___reduce_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_27__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site___reduce_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29244,7 +29262,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Active_site__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_29__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site___setstate_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11Active_site_29__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Active_site___setstate_cython, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__46)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7actseek_13ActSeekLib_cy_Active_site, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29257,7 +29275,7 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple selected_combination
  *     cdef list search_coords
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_1euclidean_transformation_fit, 0, __pyx_n_s_euclidean_transformation_fit, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_1euclidean_transformation_fit, 0, __pyx_n_s_euclidean_transformation_fit, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_euclidean_transformation_fit, __pyx_t_2) < 0) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29269,7 +29287,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     # Center the point sets
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_3estimate_alignment, 0, __pyx_n_s_estimate_alignment, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_3estimate_alignment, 0, __pyx_n_s_estimate_alignment, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_estimate_alignment, __pyx_t_2) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29281,7 +29299,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Calculate distances between transformed case protein coordinates and search alpha carbon coordinates,
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_5calculate_distances, 0, __pyx_n_s_calculate_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_5calculate_distances, 0, __pyx_n_s_calculate_distances, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calculate_distances, __pyx_t_2) < 0) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29293,7 +29311,7 @@ if (!__Pyx_RefNanny) {
  *     return np.linalg.norm(case_protein_coords[index1] - case_protein_coords[index2])
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_7calculate_distance_single, 0, __pyx_n_s_calculate_distance_single, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_7calculate_distance_single, 0, __pyx_n_s_calculate_distance_single, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calculate_distance_single, __pyx_t_2) < 0) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29305,7 +29323,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Calculate the final distance between the transformed case protein coordinates and the search coordinates. The variable search_alphac_coords_all is different from search_alphac_coords as it contains all the amino acids defined by the user,
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_9calculate_final_distance, 0, __pyx_n_s_calculate_final_distance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_9calculate_final_distance, 0, __pyx_n_s_calculate_final_distance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_calculate_final_distance, __pyx_t_2) < 0) __PYX_ERR(0, 377, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29317,7 +29335,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Calculate the sum and mean of distances between "number_of_surrounding" number of corresponding amino acids in two protein structures surrounding the amino acids selected for the search.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11get_distance_around, 0, __pyx_n_s_get_distance_around, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 460, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_11get_distance_around, 0, __pyx_n_s_get_distance_around, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 460, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_distance_around, __pyx_t_2) < 0) __PYX_ERR(0, 460, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29329,7 +29347,7 @@ if (!__Pyx_RefNanny) {
  *                 real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords, search_betac_coords, number_of_surrounding, threshold, printing):
  *     """
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_13ransac_protein, 0, __pyx_n_s_ransac_protein, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 513, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_13ransac_protein, 0, __pyx_n_s_ransac_protein, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_ransac_protein, __pyx_t_2) < 0) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29341,7 +29359,7 @@ if (!__Pyx_RefNanny) {
  *                 real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords,search_betac_coords, number_of_surrounding, threshold, printing):
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_15ransac_protein, 0, __pyx_n_s_ransac_protein, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 591, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_15ransac_protein, 0, __pyx_n_s_ransac_protein, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 591, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_ransac_protein, __pyx_t_2) < 0) __PYX_ERR(0, 591, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29353,7 +29371,7 @@ if (!__Pyx_RefNanny) {
  *     atomics = []
  *     atoms_size ={"GLY": "2", "ALA": "2", "PRO": "2.2", "ARG": "5", "HIS": "4.5", "LYS": "4.75", "ASP": "4",
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_17get_atomics, 0, __pyx_n_s_get_atomics, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 646, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_17get_atomics, 0, __pyx_n_s_get_atomics, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_atomics, __pyx_t_2) < 0) __PYX_ERR(0, 646, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29365,7 +29383,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     ligand_cutoff: Union[float, in32t] = 6
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_19get_cavity, 0, __pyx_n_s_get_cavity, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__68)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 664, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_19get_cavity, 0, __pyx_n_s_get_cavity, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 664, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_cavity, __pyx_t_2) < 0) __PYX_ERR(0, 664, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29377,7 +29395,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Find the nearest neighbors between two sets of vectors within a given threshold.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_21find_nearest_neighbors, 0, __pyx_n_s_find_nearest_neighbors, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__70)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 709, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_21find_nearest_neighbors, 0, __pyx_n_s_find_nearest_neighbors, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__68)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 709, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_find_nearest_neighbors, __pyx_t_2) < 0) __PYX_ERR(0, 709, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29389,7 +29407,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Scores the given vector.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_23score, 0, __pyx_n_s_score, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 772, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_23score, 0, __pyx_n_s_score, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__70)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 772, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_score, __pyx_t_2) < 0) __PYX_ERR(0, 772, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29401,7 +29419,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     Calculate a weighted score for the given vector.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_25score_vector, 0, __pyx_n_s_score_vector, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 810, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_25score_vector, 0, __pyx_n_s_score_vector, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 810, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_score_vector, __pyx_t_2) < 0) __PYX_ERR(0, 810, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29413,7 +29431,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *     This function calculates the nearest neighbors between two sets of coordinates, computes a score based on the indices of the nearest neighbors, and returns the score, the root mean square deviation (RMSD) normalized by coverage, and the coverage.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_27getGlobalDistance, 0, __pyx_n_s_getGlobalDistance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__76)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 844, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_27getGlobalDistance, 0, __pyx_n_s_getGlobalDistance, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 844, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_getGlobalDistance, __pyx_t_2) < 0) __PYX_ERR(0, 844, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29423,7 +29441,7 @@ if (!__Pyx_RefNanny) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_29__pyx_unpickle_Amino_acid, 0, __pyx_n_s_pyx_unpickle_Amino_acid, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__78)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_29__pyx_unpickle_Amino_acid, 0, __pyx_n_s_pyx_unpickle_Amino_acid, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__76)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Amino_acid, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -29435,7 +29453,7 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result.amino_acid_class = __pyx_state[0]; __pyx_result.amino_acid_id = __pyx_state[1]; __pyx_result.coords = __pyx_state[2]; __pyx_result.distances = __pyx_state[3]; __pyx_result.index = __pyx_state[4]; __pyx_result.real_index = __pyx_state[5]
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_31__pyx_unpickle_Active_site, 0, __pyx_n_s_pyx_unpickle_Active_site, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7actseek_13ActSeekLib_cy_31__pyx_unpickle_Active_site, 0, __pyx_n_s_pyx_unpickle_Active_site, NULL, __pyx_n_s_actseek_ActSeekLib_cy, __pyx_d, ((PyObject *)__pyx_codeobj__77)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Active_site, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -33495,7 +33513,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_kp_u__9);
+        module_dot = PyUnicode_Concat(module_name, __pyx_kp_u__7);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -34044,7 +34062,7 @@ static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *
 #endif
 static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
 #if PY_MAJOR_VERSION < 3
-    PyObject *module, *from_list, *star = __pyx_n_s__11;
+    PyObject *module, *from_list, *star = __pyx_n_s__9;
     CYTHON_UNUSED_VAR(parts_tuple);
     from_list = PyList_New(1);
     if (unlikely(!from_list))
@@ -35581,7 +35599,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__80);
+        name = __Pyx_NewRef(__pyx_n_s__78);
     }
     return name;
 }

@@ -89,27 +89,41 @@ def read_pdbs_seed(aa_active, seed_protein):
     return np.array(seed_coords), np.array(seed_coords_cb), np.array(cavity_coords), np.array(cavity_coords_cb),  aaCav, np.array(active), real_index_seed, real_i_seed
 
 
-def compare_active(case_selected, seed_selected, t_transformed,real_index_opos, seed_coords,real_index_opos_seed):
+
+def compare_active(case_selected, seed_selected, distances, indices):  
+    try:
+        residues_seed=[]
+        id_seed={}
+        for res in seed_selected:
+            residues_seed.append(int(res[0]))
+            id_seed[int(res[0])]=res[2]
+
+         
+        id_case={}
+        residues_case=[]
+        for res in case_selected:
+            residues_case.append(int(res[0]))            
+            id_case[int(res[0])]=res[2]
+          
+        distance=[]
+        target_index =[]
+        for dist, index in zip(distances,indices):
+            if int(index[1]) in residues_seed and int(index[0]) in residues_case:
+                distance.append(dist)
+                target_index.append(index)       
     
-    seed_res=[]
-    for res in seed_selected:
-        resid= real_index_opos_seed[int(res[0])]
-        seed_res.append(seed_coords[resid])
-       
-    case_res=[]
-    for res in case_selected:
-        resid= real_index_opos[int(res[0])]
-        case_res.append(t_transformed[resid])
-       
-    distance, target_index =ActSeekLib.find_nearest_neighbors(np.array(case_res), np.array(seed_res),3)
-        
-    average_distance = np.average(distance)    
-    mapping=[]
 
-    for target in target_index:
-        mapping.append(case_selected[target[0]][0]+case_selected[target[0]][2]+":"+ seed_selected[target[1]][0]+seed_selected[target[1]][2])
+        average_distance = np.average(distance)    
+        mapping=[]
 
-    return average_distance, mapping
+        percentage = len(target_index)/len(case_selected)
+
+        for target in target_index:            
+            mapping.append(str(target[0])+id_case[target[0]]+":"+ str(target[1])+id_seed[target[1]])
+      
+    except:
+        return 0,"",0
+    return average_distance, mapping, percentage
 
 
 def printProtein(translation_vector, rotation, path, name):
@@ -195,7 +209,7 @@ def ActSeekMain(aa_des,  case_protein_filename, iterations, case_protein_name, s
 
         if np.sum(distances) / len(solution) < config.threshold and len(solution) >= 3 and distances_arround < config.aa_surrounding_threshold:
             try:
-                rmsd, minrmsd, percentage= ActSeekLib.getGlobalDistance(t_transformed, seed_coords)
+                rmsd, minrmsd, percentage,distancesal, indices= ActSeekLib.getGlobalDistance(t_transformed, seed_coords)
                 if config.KVFinder == True:
                     atomics= ActSeekLib.get_atomics(protein_coords,protein_coords_cb,aa, real_index)
                     case_residues = ActSeekLib.get_cavity(atomics)
@@ -211,7 +225,7 @@ def ActSeekMain(aa_des,  case_protein_filename, iterations, case_protein_name, s
                             max_count = count  
              
                     if seed_selected != None and case_selected!= None:
-                        kvdistance, kvmapping = compare_active(case_selected, seed_selected, t_transformed, real_index_opos, seed_coords, real_index_seed)        
+                        kvdistance, kvmapping, kvpercentage = compare_active(case_selected, seed_selected, distancesal, indices)       
 
             except:
                 traceback.print_exc()
@@ -231,7 +245,7 @@ def ActSeekMain(aa_des,  case_protein_filename, iterations, case_protein_name, s
 
 
             if config.KVFinder == True:
-                sol_write.write(case_protein_name + "," + strmapping + "," + str(np.sum(distances) / len(solution)) + "," + str(distances_arround) + "," + ";".join(map(str, distances)) + ","+str(rmsd)+","+str(minrmsd)+","+str(percentage)+","+str(kvdistance)+","+ ";".join(kvmapping)+"\n")
+                sol_write.write(case_protein_name + "," + strmapping + "," + str(np.sum(distances) / len(solution)) + "," + str(distances_arround) + "," + ";".join(map(str, distances)) + ","+str(rmsd)+","+str(minrmsd)+","+str(percentage)+","+str(kvdistance)+","+ ";".join(kvmapping)+","+ str(kvpercentage)+"\n")
             else:
                 sol_write.write(
                     case_protein_name + "," + strmapping + "," + str(np.sum(distances) / len(active)) + "," + str(distances_arround) + "," + ";".join(map(str, distances)) + ","+str(rmsd)+","+str(minrmsd)+","+str(percentage)+"\n")
@@ -406,7 +420,7 @@ def main():
 
             files = os.listdir(config.random_dir)
             results = open(config.path_results+"/results.csv","w")
-            results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural similarity, Structural RMSD, Percentage structural mapping, Cavity distance, Cavity mapping (case:seed)\n")
+            results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural similarity, Structural RMSD, Percentage structural mapping, Cavity distance, Cavity mapping (case:seed),Cavity mapping percentage\n")
             for file in files:
                 f = open(config.random_dir+"/"+file, "r")
                 for line in f:

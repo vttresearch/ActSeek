@@ -862,16 +862,16 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2):
 
 
         if len(indices) == 0:
-            return 100.0, 100.0, 100.0
+            return 100.0, 100.0, 100.0,[],[]
 
         rmsd = np.mean(distances)
         coverage = len(indices) / len(coords1)
 
-        return score, rmsd / coverage, coverage
+        return score, rmsd / coverage, coverage, distances, indices
 
     except Exception:
         traceback.print_exc()
-        return 40.0, 100.0, 100.0
+        return 40.0, 100.0, 100.0,[],[]
 
 
 
