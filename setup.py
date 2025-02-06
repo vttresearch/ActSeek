@@ -10,7 +10,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Your Name',
     author_email='sandra.castillo@vtt.fi',
-    url='https://github.com/yourusername/actseek',
+    url='https://github.com/vttresearch/ActSeek',
     packages=find_packages(),
     include_package_data=True,
     ext_modules=cythonize("actseek/ActSeekLib_cy.pyx"),
@@ -21,7 +21,8 @@ setup(
         'tqdm',
         'wget',
         'requests',
-        'cython'
+        'cython',
+        'pyKVFinder'
     ],
     entry_points={
         'console_scripts': [

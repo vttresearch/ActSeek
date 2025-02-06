@@ -17,6 +17,7 @@ Install the required libraries using `pip`:
 pip install numpy biopython tqdm wget requests
 pip install cython
 pip install scipy
+pip install pyKVFinder
 pip install .
 
 ```
@@ -28,6 +29,7 @@ tqdm
 wget
 requests
 scipy
+pyKVFinder
 cython
 
 ## Usage
@@ -83,6 +85,13 @@ The program accepts several command line arguments to override the configuration
 -pr, --path-results: Path of the results.
 
 -ts, --testing: Testing one protein. This argument takes the Uniprot Id of the protein and returns the structure of the protein aligned with the seed structure. 
+
+-kv, --KVFinder:Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.
+
+#### Comman line example
+```sh
+actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
+```
 
 ### Needed files
 - Seed pdb file (in tests it is AF-Q9ZHI2-F1-model_v4.pdb)

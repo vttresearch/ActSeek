@@ -5,6 +5,8 @@ import random
 import warnings
 from scipy.spatial import KDTree
 import traceback
+from actseek.grid import detect, get_vertices,spatial, constitutional, _get_sincos, _get_dimensions
+
 
 warnings.filterwarnings("ignore")
 
@@ -641,46 +643,131 @@ def ransac_protein(search_alphac_coords_all, case_protein_alphac_coords, case_pr
 
 
 
+def get_atomics(protein_coords,protein_coords_cb, protein_amino_acid_dict, real_index):
+    atomics = []
+    atoms_size ={"GLY": "2", "ALA": "2", "PRO": "2.2", "ARG": "5", "HIS": "4.5", "LYS": "4.75", "ASP": "4",
+                  "GLU": "4.2",
+                  "SER": "2.5", "THR": "2.4", "ASN": "3.5", "GLN": "4.2", "CYS": "2.5", "VAL": "2", "ILE": "2.5",
+                  "LEU": "2.5",
+                  "MET": "3", "PHE": "4", "TYR": "4", "TRP": "5"}
+    for i in range(len(protein_coords)):
+        coords = protein_coords[i]        
+        coords2 = protein_coords_cb[i]
+        res =  protein_amino_acid_dict[real_index[i]]
+        atomics.append( [real_index[i],"A",res, "C", coords[0], coords[1], coords[2], 3])
+        if coords2[0]> -1000: 
+            atomics.append( [real_index[i],"A", res, "C", coords2[0], coords2[1], coords2[2], atoms_size[res]])
+    
+    return np.asarray(atomics)
 
 
-cpdef find_nearest_neighbors(cnp.ndarray source_vectors, cnp.ndarray target_vectors):
+def get_cavity(atomic):
+
+    ligand_cutoff: Union[float, in32t] = 6
+    volume_cutoff: Union[float, int32] = 2.0
+    removal_distance: Union[float, int32] = 3
+    probe_in: Union[float, int32] = 1.4
+    probe_out: Union[float, int32] = 5
+
+    step=0.6
+    vertices = get_vertices(atomic,step,1)
+
+
+    dim = _get_dimensions(vertices, step)
+    nx = dim[0]
+    ny = dim[1]
+    nz = dim[2]
+    rotation = _get_sincos(vertices)
+
+
+    
+
+    ncav, cavities = detect(
+        atomic,
+        vertices,
+        step,
+        probe_in,
+        probe_out,
+        removal_distance,
+        volume_cutoff,
+        None,
+        ligand_cutoff,
+        True,
+        "SES",
+        1,
+        False,
+    )
+    if ncav > 0:
+        residues = constitutional(cavities,atomic, vertices, ignore_backbone=False)
+        return residues
+    else:
+        return []
+
+
+
+
+cpdef find_nearest_neighbors(cnp.ndarray vector_source, cnp.ndarray vector_target, float threshold):
     """
-    Finds the nearest neighbors between two sets of vectors.
+    Find the nearest neighbors between two sets of vectors within a given threshold.
 
-    Parameters:
-    source_vectors (cnp.ndarray): First set of vectors.
-    target_vectors (cnp.ndarray): Second set of vectors.
+    Parameters
+    ----------
+    vector_source : cnp.ndarray
+        The source vector set.
+    vector_target : cnp.ndarray
+        The target vector set.
+    threshold : float
+        The distance threshold for considering neighbors.
 
-    Returns:
-    tuple: Four elements - 
-        nearest_distances (np.ndarray): Array of distances between each pair of nearest neighbors.
-        nearest_indices (np.ndarray): Array of indices of the vectors in source_vectors that have nearest neighbors in target_vectors.
+    Returns
+    -------
+    tuple
+        A tuple containing:
+        - distances (list): List of distances between aligned vectors.
+        - alignment (list): List of index pairs (source index, target index) for aligned vectors.
     """
-    cdef list nearest_distances = []
-    cdef list nearest_indices = []
-    cdef set assigned_targets = set()
-    cdef int source_index = 0
-
-    # Build KDTree for target_vectors
-    target_tree = KDTree(target_vectors)
-
-    for source_vector in source_vectors:
-        # Query the nearest neighbor
-        distance, target_index = target_tree.query(source_vector)
-        nearest_target = target_vectors[target_index]
-
-        if tuple(nearest_target) not in assigned_targets and distance < 2:
-            assigned_targets.add(tuple(nearest_target))
-            nearest_distances.append(distance)
-            nearest_indices.append(source_index)
-            
-            # Remove the assigned target from the KDTree
-            target_vectors = np.delete(target_vectors, target_index, axis=0)
-            target_tree = KDTree(target_vectors)
-            
-        source_index += 1
-
-    return np.array(nearest_distances), np.array(nearest_indices)
+    m = len(vector_source)
+    n = len(vector_target)
+    
+   
+    dist_matrix = np.zeros((m, n))
+    for i in range(m):
+        for j in range(n):
+            dist = np.linalg.norm(np.array(vector_source[i]) - np.array(vector_target[j]))
+            dist_matrix[i][j] = dist
+    
+   
+    score_matrix = (dist_matrix <= threshold).astype(int)
+    
+   
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    
+ 
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            current_score = score_matrix[i-1][j-1]
+            diagonal = dp[i-1][j-1] + current_score
+            up = dp[i-1][j]
+            left = dp[i][j-1]
+            dp[i][j] = max(diagonal, up, left)
+    
+    i, j = m, n
+    alignment = []
+    distances = []
+    while i > 0 or j > 0:
+        if i > 0 and j > 0 and dp[i][j] == dp[i-1][j-1] + score_matrix[i-1][j-1]:
+            if score_matrix[i-1][j-1] == 1:
+                alignment.append((i-1, j-1))
+                distances.append(dist_matrix[i-1][j-1])
+            i -= 1
+            j -= 1
+        elif i > 0 and dp[i][j] == dp[i-1][j]:
+            i -= 1
+        else:
+            j -= 1    
+    
+    alignment.reverse()
+    return distances, alignment
 
 cpdef score(cnp.ndarray vector, int size):
     """
@@ -720,13 +807,13 @@ cpdef score(cnp.ndarray vector, int size):
 
 
 
-cpdef float score_vector(cnp.ndarray vector):
+cpdef float score_vector(list vector):
     """
     Calculate a weighted score for the given vector.
 
     Parameters
     ----------
-    vector : cnp.ndarray
+    vector : list
         The input vector for which the score is to be calculated.
 
     Returns
@@ -744,9 +831,12 @@ cpdef float score_vector(cnp.ndarray vector):
     cdef float total_score = 0.0
     cdef int total_weight = 0
     cdef int i
-
+    target_indices=[]
+    for val in vector:
+        target_indices.append(val[1])
+    target_indices = np.array(target_indices)
     for i in [5, 10, 15, 20]:
-        total_score += score(vector, i) * i
+        total_score += score(target_indices, i) * i
         total_weight += i
 
     return total_score / total_weight
@@ -761,14 +851,15 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2):
     Raises:
         Exception: If an error occurs during the computation, the exception is caught, and a traceback is printed.
     """
-    cdef cnp.ndarray distances
-    cdef cnp.ndarray indices
+    cdef list distances
+    cdef list indices
     cdef float rmsd
     cdef float score
 
     try:
-        distances, indices = find_nearest_neighbors(coords1, coords2)
+        distances, indices= find_nearest_neighbors(coords1, coords2,2)        
         score = score_vector(indices)
+
 
         if len(indices) == 0:
             return 100.0, 100.0, 100.0
@@ -781,7 +872,6 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2):
     except Exception:
         traceback.print_exc()
         return 40.0, 100.0, 100.0
-
 
 
 

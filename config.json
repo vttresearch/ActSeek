@@ -38,5 +38,6 @@
     "seed_protein_file": "AF-Q9ZHI2-F1-model_v4.pdb",
     "delete_protein_files": true,
     "path_results": "results2",
-    "testing": ""
+    "testing": "",
+    "KVFinder": false
 }

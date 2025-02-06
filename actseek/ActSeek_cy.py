@@ -14,7 +14,6 @@ import wget
 import requests
 import json
 import tempfile
-import unittest
 
 warnings.filterwarnings("ignore")
 
@@ -22,36 +21,15 @@ config = None
 
 
 # Reads the protein structure with the Biopython library and extracts the coordinates of the amino acids.
-def read_pdbs(aa_active, seed_protein, case_protein):
-    """
-    Reads PDB files for the seed and case proteins, extracts coordinates and other relevant information.
-
-    Parameters:
-    aa_active (list): List of active amino acids in the seed protein.
-    seed_protein (str): Path to the seed protein PDB file.
-    case_protein (str): Path to the case protein PDB file.
-
-    Returns:
-    tuple: A tuple containing the following elements:
-        - protein_coords (np.ndarray): Coordinates of the alpha carbon atoms (CA) in the case protein.
-        - protein_coords_cb (np.ndarray): Coordinates of the beta carbon atoms (CB) in the case protein.
-        - seed_coords (np.ndarray): Coordinates of the alpha carbon atoms (CA) in the seed protein.
-        - cavity_coords (np.ndarray): Coordinates of the alpha carbon atoms (CA) in the active site of the seed protein.
-        - cavity_coords_cb (np.ndarray): Coordinates of the beta carbon atoms (CB) in the active site of the seed protein.
-        - aa (dict): Dictionary mapping residue indices to residue names in the case protein.
-        - aaCav (dict): Dictionary mapping residue indices to residue names in the active site of the seed protein.
-        - active (np.ndarray): Array of active residue indices in the seed protein.
-        - real_index (dict): Dictionary mapping sequential indices to residue indices in the case protein.
-        - real_index_seed (dict): Dictionary mapping residue indices to sequential indices in the seed protein.    
-    """
+def read_pdbs_case(case_protein):
     parser = PDBParser()
-    seed_structure = parser.get_structure("complex", seed_protein)
     case_structure = parser.get_structure("complex2", case_protein)
     aa = {}
     protein_coords = []
     protein_coords_cb = []
     i = 0
     real_index = {}
+    real_index_opos = {}
     for model in case_structure:
         for chain in model:
             for residue in chain:
@@ -64,24 +42,40 @@ def read_pdbs(aa_active, seed_protein, case_protein):
                     protein_coords_cb.append([-10000000, -10000000, -10000000])
                 aa[int(residue.get_id()[1])] = str(residue.get_resname())
                 real_index[i] = int(residue.get_id()[1])
+                real_index_opos[ int(residue.get_id()[1])] = i
                 i = i + 1
-            break
+            break    
+   
+    return np.array(protein_coords), np.array(protein_coords_cb), aa, real_index, real_index_opos
+
+def read_pdbs_seed(aa_active, seed_protein):
+
+    parser = PDBParser()
+    seed_structure = parser.get_structure("complex", seed_protein)   
+
     cavity_coords = []
     cavity_coords_cb = []
     seed_coords = []
+    seed_coords_cb=[]
     aaCav = {}
     active = []
     real_index_seed = {}
+    real_i_seed={}
     i = 0
     for model in seed_structure:
         for chain in model:
             for residue in chain:
                 real_index_seed[int(residue.get_id()[1])] = i
+                real_i_seed[i]=int(residue.get_id()[1])
                 i = i + 1
                 for atom in residue:
                     if "CA" in atom.fullname:
                         seed_coords.append(atom.get_coord())
-
+                    if 'CB' in atom.fullname:
+                            seed_coords_cb.append(atom.get_coord())
+                if residue.get_resname() == "GLY":
+                    seed_coords_cb.append([-10000000, -10000000, -10000000])
+                aaCav[int(residue.get_id()[1])] = str(residue.get_resname())
                 if residue.get_id()[1] in aa_active:
                     active.append(int(residue.get_id()[1]))
                     for atom in residue:
@@ -90,12 +84,32 @@ def read_pdbs(aa_active, seed_protein, case_protein):
                         if 'CB' in atom.fullname:
                             cavity_coords_cb.append(atom.get_coord())
                     if residue.get_resname() == "GLY":
-                        cavity_coords_cb.append([-10000000, -10000000, -10000000])
-                    aaCav[int(residue.get_id()[1])] = str(residue.get_resname())
+                        cavity_coords_cb.append([-10000000, -10000000, -10000000])       
+                        
+    return np.array(seed_coords), np.array(seed_coords_cb), np.array(cavity_coords), np.array(cavity_coords_cb),  aaCav, np.array(active), real_index_seed, real_i_seed
 
+
+def compare_active(case_selected, seed_selected, t_transformed,real_index_opos, seed_coords,real_index_opos_seed):
     
-    return np.array(protein_coords), np.array(protein_coords_cb), np.array(seed_coords), np.array(cavity_coords), np.array(cavity_coords_cb), aa, aaCav, np.array(active), real_index, real_index_seed
+    seed_res=[]
+    for res in seed_selected:
+        resid= real_index_opos_seed[int(res[0])]
+        seed_res.append(seed_coords[resid])
+       
+    case_res=[]
+    for res in case_selected:
+        resid= real_index_opos[int(res[0])]
+        case_res.append(t_transformed[resid])
+       
+    distance, target_index =ActSeekLib.find_nearest_neighbors(np.array(case_res), np.array(seed_res),3)
+        
+    average_distance = np.average(distance)    
+    mapping=[]
 
+    for target in target_index:
+        mapping.append(case_selected[target[0]][0]+case_selected[target[0]][2]+":"+ seed_selected[target[1]][0]+seed_selected[target[1]][2])
+
+    return average_distance, mapping
 
 
 def printProtein(translation_vector, rotation, path, name):
@@ -125,7 +139,7 @@ def printProtein(translation_vector, rotation, path, name):
     io.set_structure(structure2)
     io.save(config.path_results+"/"+name+".pdb")
 
-def ActSeekMain(aa_active, aa_des, seed_protein, case_protein_filename, iterations, case_protein_name):
+def ActSeekMain(aa_des,  case_protein_filename, iterations, case_protein_name, seed_selected,seed_coords, cavity_coords, cavity_coords_cb, aaCav, active, real_index_seed):
     """
     Main function for the ActSeek algorithm.
 
@@ -150,10 +164,7 @@ def ActSeekMain(aa_active, aa_des, seed_protein, case_protein_filename, iteratio
     # Reads the structures of the seed and the case structures with the Biopython library and extract the needed information
 
     try:
-        protein_coords, protein_coords_cb, seed_coords,cavity_coords, cavity_coords_cb,  aa, aaCav, active, real_index, real_index_seed = read_pdbs(
-            aa_active,
-            seed_protein,
-            case_protein_filename)
+        protein_coords, protein_coords_cb, aa, real_index, real_index_opos= read_pdbs_case(case_protein_filename)
     except:
         traceback.print_exc()
         return None, None, None, None, None, None, None, None, None, None
@@ -185,6 +196,23 @@ def ActSeekMain(aa_active, aa_des, seed_protein, case_protein_filename, iteratio
         if np.sum(distances) / len(solution) < config.threshold and len(solution) >= 3 and distances_arround < config.aa_surrounding_threshold:
             try:
                 rmsd, minrmsd, percentage= ActSeekLib.getGlobalDistance(t_transformed, seed_coords)
+                if config.KVFinder == True:
+                    atomics= ActSeekLib.get_atomics(protein_coords,protein_coords_cb,aa, real_index)
+                    case_residues = ActSeekLib.get_cavity(atomics)
+                    case_selected=None
+                    max_count=0     
+                    for k, res in case_residues.items():
+                        count=0
+                        for r in res:
+                            if str(real_index[solution[0][0]]) == r[0] or str(real_index[solution[1][0]]) == r[0] or str(real_index[solution[2][0]]) == r[0]:
+                                count=count+1
+                        if count > max_count:
+                            case_selected= res 
+                            max_count = count  
+             
+                    if seed_selected != None and case_selected!= None:
+                        kvdistance, kvmapping = compare_active(case_selected, seed_selected, t_transformed, real_index_opos, seed_coords, real_index_seed)        
+
             except:
                 traceback.print_exc()
 
@@ -202,8 +230,11 @@ def ActSeekMain(aa_active, aa_des, seed_protein, case_protein_filename, iteratio
                     active[aamap[1]]) + aa_cavity + ";"
 
 
-            sol_write.write(
-                case_protein_name + "," + strmapping + "," + str(np.sum(distances) / len(active)) + "," + str(distances_arround) + "," + ";".join(map(str, distances)) + ","+str(rmsd)+","+str(minrmsd)+","+str(percentage)+"\n")
+            if config.KVFinder == True:
+                sol_write.write(case_protein_name + "," + strmapping + "," + str(np.sum(distances) / len(solution)) + "," + str(distances_arround) + "," + ";".join(map(str, distances)) + ","+str(rmsd)+","+str(minrmsd)+","+str(percentage)+","+str(kvdistance)+","+ ";".join(kvmapping)+"\n")
+            else:
+                sol_write.write(
+                    case_protein_name + "," + strmapping + "," + str(np.sum(distances) / len(active)) + "," + str(distances_arround) + "," + ";".join(map(str, distances)) + ","+str(rmsd)+","+str(minrmsd)+","+str(percentage)+"\n")
             sol_write.close()
     else:
         pass
@@ -230,10 +261,31 @@ def processProtein(case_protein_name):
 
         # This part is give by the user, it should maybe be in the main function to be given as argument
         aa_active = [int(x) for x in config.active_site.split(",")]
+        seed_coords, seed_coords_cb, cavity_coords, cavity_coords_cb, aaCav, active, real_index_seed, real_i_seed = read_pdbs_seed(
+            aa_active,
+            seed_protein)
         
 
-        # Main function of the algorithm
-        ActSeekMain(aa_active, config.aa_grouping, seed_protein, case_protein_filepath, config.iterations, case_protein_name)
+        if config.KVFinder == True:
+            seed_selected=None
+            atomics= ActSeekLib.get_atomics(seed_coords,seed_coords_cb,aaCav, real_i_seed)
+            seed_residues = ActSeekLib.get_cavity(atomics)
+
+            max_count=0                        
+            for k, res in seed_residues.items():
+                count=0
+                for r in res:
+                    if str(active[0]) == r[0] or str(active[1]) == r[0] or str(active[2]) == r[0]:                            
+                        count=count+1
+                if count > max_count:
+                    seed_selected=res    
+                    max_count = count   
+
+        else:
+            seed_selected=None
+
+        # Main function of the algorithm       
+        ActSeekMain(config.aa_grouping, case_protein_filepath, config.iterations, case_protein_name, seed_selected,seed_coords, cavity_coords,cavity_coords_cb,aaCav, active, real_index_seed)
 
         # Removes the protein structure once the algorithm has finished
         if config.delete_protein_files == True:
@@ -291,6 +343,9 @@ def parse_args():
     parser.add_argument("-pr", "--path-results", type=str, default=config['path_results'], help="Path of the results")    
     parser.add_argument("-ts", "--testing", type=str, default=config['testing'],
                     help="Testing one protein. This argument takes the Uniprot Id of the protein.")
+    parser.add_argument("-kv", "--KVFinder",dest="KVFinder", action="store_true", default=config['KVFinder'],
+                    help="Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.")
+    
     
     args = parser.parse_args()
    
@@ -351,7 +406,7 @@ def main():
 
             files = os.listdir(config.random_dir)
             results = open(config.path_results+"/results.csv","w")
-            results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural similarity, Structural RMSD, Percentage structural mapping\n")
+            results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural similarity, Structural RMSD, Percentage structural mapping, Cavity distance, Cavity mapping (case:seed)\n")
             for file in files:
                 f = open(config.random_dir+"/"+file, "r")
                 for line in f:
