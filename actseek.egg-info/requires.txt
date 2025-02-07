@@ -1,7 +1,0 @@
-numpy
-biopython
-tqdm
-wget
-requests
-cython
-pyKVFinder
