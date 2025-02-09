@@ -89,8 +89,6 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
     numpy.ndarray
         Array of C-alpha coordinates from all residues in the seed PDB.
     numpy.ndarray
-        Array of C-beta coordinates from all residues in the seed PDB.
-    numpy.ndarray
         Array of C-alpha coordinates from the active site residues.
     numpy.ndarray
         Array of C-beta coordinates from the active site residues.
@@ -100,8 +98,6 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
         Array of active site residue IDs.
     dict
         Mapping of residue IDs to their corresponding array indices.
-    dict
-        Mapping of array indices to their corresponding residue IDs.
 
     Notes
     -----
@@ -112,30 +108,22 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
     parsed_seed_structure = parser.get_structure("complex", seed_pdb_path)
 
     seed_ca_coords = []
-    seed_cb_coords = []
     active_site_ca_coords = []
     active_site_cb_coords = []
     seed_residue_names = {}
     active_site_seed_resids = []
     seed_resid_to_array_index = {}
-    array_index_to_seed_resid = {}
     index_counter = 0
 
     for model in parsed_seed_structure:
         for chain in model:
             for residue in chain:
                 seed_resid_to_array_index[int(residue.get_id()[1])] = index_counter
-                array_index_to_seed_resid[index_counter] = int(residue.get_id()[1])
                 index_counter += 1
 
                 for atom in residue:
                     if "CA" in atom.fullname:
                         seed_ca_coords.append(atom.get_coord())
-                    if "CB" in atom.fullname:
-                        seed_cb_coords.append(atom.get_coord())
-
-                if residue.get_resname() == "GLY":
-                    seed_cb_coords.append([-10000000, -10000000, -10000000])
 
                 seed_residue_names[int(residue.get_id()[1])] = str(residue.get_resname())
 
@@ -153,13 +141,11 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
 
     return (
         np.array(seed_ca_coords),
-        np.array(seed_cb_coords),
         np.array(active_site_ca_coords),
         np.array(active_site_cb_coords),
         seed_residue_names,
         np.array(active_site_seed_resids),
-        seed_resid_to_array_index,
-        array_index_to_seed_resid
+        seed_resid_to_array_index
     )
 
 
@@ -467,7 +453,7 @@ def main():
         seed_protein = config.seed_protein_file
         aa_active = [int(x) for x in config.active_site.split(",")]
         try:
-            seed_coords, seed_coords_cb, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict, real_index_seed_opos_dict = read_pdbs_seed(aa_active,
+            seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed(aa_active,
                 seed_protein)
         except:
             print("Seed pdb file not found or the file is not readable.")
