@@ -178,6 +178,20 @@ def print_protein(translation_vector, rotation, path, name):
     io.save(config.path_results+"/"+name+".pdb")
 
 def get_cavities(protein, res_active_site, volume_cutoff=5.0, removal_distance=2.4, probe_in=1.4, probe_out=4, surface="SES", step=0.6):
+    """
+    Retrieve cavity information from a given protein structure based on specified parameters.
+    Args:
+        protein (str): The file path to the target protein (in PDB format).
+        res_active_site (list): A list of residues that define the active site of interest.
+        volume_cutoff (float, optional): Minimum volume required for a cavity to be considered valid.
+        removal_distance (float, optional): Distance threshold used to remove or merge cavities close to each other.
+        probe_in (float, optional): Radius of the small probe for detecting cavity inner boundaries.
+        probe_out (float, optional): Radius of the large probe for detecting cavity outer boundaries.
+        surface (str, optional): The surface type to be considered in the detection (e.g., "SES").
+        step (float, optional): Resolution step size for the internal volumetric calculation.
+    Returns:
+        list: A list of residue information that contributes to the detected cavities intersecting with the active site.
+    """
     atomic = pyKVFinder.read_pdb(protein)
     volume_cutoff= 5.0
     removal_distance= 2.4
@@ -428,7 +442,7 @@ def parse_args():
 
 def main():
     """
-    Main function to set up configuration, create necessary directories,
+    Main function to set up configuration, reads and process the seed protein, create necessary directories,
     and process proteins using multiprocessing.
     """
     global config
