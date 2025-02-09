@@ -5,7 +5,6 @@ import random
 import warnings
 from scipy.spatial import KDTree
 import traceback
-from actseek.grid import detect, get_vertices,spatial, constitutional, _get_sincos, _get_dimensions
 
 
 warnings.filterwarnings("ignore")
@@ -510,7 +509,7 @@ cpdef get_distance_around(cnp.ndarray case_protein_coords, cnp.ndarray search_pr
 
 
 
-def ransac_protein(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, search_protein_coords, valid_combinations, iterations, amino_acids_groups, case_protein_dict,
+def act_seek_search(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, search_protein_coords, valid_combinations, iterations, amino_acids_groups, case_protein_dict,
                 real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords, search_betac_coords, number_of_surrounding, threshold, printing):
     """
     Performs RANSAC (Random Sample Consensus) algorithm to find the best alignment of a case protein to a search protein.
@@ -588,9 +587,37 @@ def ransac_protein(search_alphac_coords_all, case_protein_alphac_coords, case_pr
             traceback.print_exc()
 
     return distances_selected, final_distances_arround, case_protein_transformed_final, solution, translation_matrix, rotation_matrix
-def ransac_protein(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, search_protein_coords, valid_combinations, iterations, amino_acids_groups, case_protein_dict,
-                real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords,search_betac_coords, number_of_surrounding, threshold, printing):
 
+
+def actseek_search(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, search_protein_coords, valid_combinations, iterations, amino_acids_groups, case_protein_dict,
+                real_index, search_real_index, search_amino_acids_dict, search_indexes, search_alphac_coords,search_betac_coords, number_of_surrounding, threshold, printing):
+    """
+    Brief:
+        Searches for active site patterns in given protein coordinate data.
+
+    Parameters:
+        search_alphac_coords_all : iterable
+            A collection of alpha-carbon coordinates for the search set.
+        case_protein_alphac_coords : iterable
+            Alpha-carbon coordinates for the case protein.
+        case_protein_betac_coords : iterable
+            Beta-carbon coordinates for the case protein.
+        search_protein_coords : iterable
+            Coordinates representing the search group of proteins.
+        valid_combinations : list or iterable
+            Valid combinations or patterns to check against.
+        iterations : int
+            Number of times the search process should be performed.
+        amino_acids_groups : dict
+            Dictionary grouping amino acids for classification purposes.
+        case_protein_dict : dict
+            Dictionary holding metadata or additional data for the case protein.
+
+    Returns:
+        Object or structure containing results of the matched active site patterns.
+        The exact format may vary, but typically includes indices or coordinates of 
+        matched residues.
+    """
     max_distance = 100000000
     solution = []
     distances_selected = []
@@ -643,72 +670,10 @@ def ransac_protein(search_alphac_coords_all, case_protein_alphac_coords, case_pr
 
 
 
-def get_atomics(protein_coords,protein_coords_cb, protein_amino_acid_dict, real_index):
-    atomics = []
-    atoms_size ={"GLY": "2", "ALA": "2", "PRO": "2.2", "ARG": "5", "HIS": "4.5", "LYS": "4.75", "ASP": "4",
-                  "GLU": "4.2",
-                  "SER": "2.5", "THR": "2.4", "ASN": "3.5", "GLN": "4.2", "CYS": "2.5", "VAL": "2", "ILE": "2.5",
-                  "LEU": "2.5",
-                  "MET": "3", "PHE": "4", "TYR": "4", "TRP": "5"}
-    for i in range(len(protein_coords)):
-        coords = protein_coords[i]        
-        coords2 = protein_coords_cb[i]
-        res =  protein_amino_acid_dict[real_index[i]]
-        atomics.append( [real_index[i],"A",res, "C", coords[0], coords[1], coords[2], 3])
-        if coords2[0]> -1000: 
-            atomics.append( [real_index[i],"A", res, "C", coords2[0], coords2[1], coords2[2], atoms_size[res]])
-    
-    return np.asarray(atomics)
-
-
-def get_cavity(atomic):
-
-    ligand_cutoff: Union[float, in32t] = 6
-    volume_cutoff: Union[float, int32] = 2.0
-    removal_distance: Union[float, int32] = 3
-    probe_in: Union[float, int32] = 1.4
-    probe_out: Union[float, int32] = 5
-
-    step=0.6
-    vertices = get_vertices(atomic,step,1)
-
-
-    dim = _get_dimensions(vertices, step)
-    nx = dim[0]
-    ny = dim[1]
-    nz = dim[2]
-    rotation = _get_sincos(vertices)
-
-
-    
-
-    ncav, cavities = detect(
-        atomic,
-        vertices,
-        step,
-        probe_in,
-        probe_out,
-        removal_distance,
-        volume_cutoff,
-        None,
-        ligand_cutoff,
-        True,
-        "SES",
-        1,
-        False,
-    )
-    if ncav > 0:
-        residues = constitutional(cavities,atomic, vertices, ignore_backbone=False)
-        return residues
-    else:
-        return []
-
-
-
 
 cpdef find_nearest_neighbors(cnp.ndarray vector_source, cnp.ndarray vector_target, float threshold):
     """
-    Find the nearest neighbors between two sets of vectors within a given threshold.
+    Find the nea rest neighbors between two sets of vectors within a given threshold.
 
     Parameters
     ----------
@@ -875,3 +840,71 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2):
 
 
 
+
+cpdef compare_cavity(list case_selected, list seed_selected, list distances, list indices):
+    """
+    Compare the cavity of the seed protein to the cavity of the case protein.
+
+    Parameters
+    ----------
+    case_selected : list
+        Each element is a list/tuple describing a residue in the case protein: [res_id, chain, res_name].
+    seed_selected : list
+        Each element is a list/tuple describing a residue in the seed protein: [res_id, chain, res_name].
+    distances : list
+        Array of distances.
+    indices : list
+        Array of index pairs.
+
+    Returns
+    -------
+    tuple
+        A tuple containing:
+        (average_distance, mapping_list, percentage)
+    """
+    cdef list residues_seed = []
+    cdef dict id_seed = {}
+    cdef list residues_case = []
+    cdef dict id_case = {}
+    cdef list distance_list = []
+    cdef list target_index = []
+    cdef list mapping_list = []
+    cdef double average_distance = 0.0
+    cdef double percentage = 0.0
+
+    try:
+        # Gather seed info
+        for res in seed_selected:
+            residues_seed.append(int(res[0]))
+            id_seed[int(res[0])] = res[2]
+
+        # Gather case info
+        for res in case_selected:
+            residues_case.append(int(res[0]))
+            id_case[int(res[0])] = res[2]
+
+        # Find distance subset
+        for i in range(len(distances)):
+            if int(indices[i][1]) in residues_seed and int(indices[i][0]) in residues_case:
+                distance_list.append(distances[i])
+                target_index.append(indices[i])
+
+        if len(distance_list) > 0:
+            average_distance = np.average(distance_list)
+        else:
+            average_distance = -1
+
+        percentage = len(target_index) / (1.0 if len(case_selected) == 0 else len(case_selected))
+
+        # Build mapping
+        for pair in target_index:
+            res_case = int(pair[0])
+            res_seed = int(pair[1])
+            mapping_list.append(
+                f"{res_case}{id_case[res_case]}:{res_seed}{id_seed[res_seed]}"
+            )
+    except:
+        raise
+        return (-1, "", -1)
+
+    return (average_distance, mapping_list, percentage)
