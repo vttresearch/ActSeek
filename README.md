@@ -92,6 +92,12 @@ The program accepts several command line arguments to override the configuration
 ```sh
 actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
 ```
+#### Testing one protein
+If you are interested on getting the output mapping file for one specific protein, the option -ts can be used followed by the id of the protein you want to test. For example:
+```sh
+actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -ts P45370
+```
+This will output the mapping file and the pdb file of the protein P45370 aligned with the seed protein (in this case Q9ZHI2). The alignment is based on the ActSeek algorithm using only the selected amino acids as mapping seed. 
 
 ### Needed files
 - Seed pdb file (in tests it is AF-Q9ZHI2-F1-model_v4.pdb)
