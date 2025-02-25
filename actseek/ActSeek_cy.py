@@ -397,48 +397,51 @@ def parse_args():
     """
     Parse the command line arguments and return them as a dictionary.
     """
-    config = read_config('config.json')    
+    try:
+        config = read_config('config.json')    
 
-    parser = argparse.ArgumentParser(description="ActSeek Program")
-    parser.add_argument("-a", "--active-site", type=str, default=config['active_site'],
-                        help="Position of the amino acids involved in the search")
-    parser.add_argument("-sa", "--selected-active", type=str, default=config['selected_active'],
-                        help="Position of the three amino acids involved in the search.")
-    parser.add_argument("-g", "--aa-grouping", type=json.loads, default=json.dumps(config['aa_grouping']),
-                        help="Amino acid grouping")
-    parser.add_argument("-r", "--random-seed", type=int, default=config['random_seed'], help="Random seed")
-    parser.add_argument("-t1", "--threshold", type=float, default=config['threshold'],
-                        help="Threshold of the average distance of the mapped amino acids.")
-    parser.add_argument("-t1c", "--threshold-combinations", type=float, default=config['threshold_combinations'],
-                        help="Threshold for choosing the possible hits.")
-    parser.add_argument("-t2", "--aa-surrounding", type=int, default=config['aa_surrounding'],
-                        help="Number of amino acids around the selected amino acids that will be taken into account while deciding which is the active site.")
-    parser.add_argument("-t2t", "--aa-surrounding-threshold", type=float, default=config['aa_surrounding_threshold'],
-                        help="Maximum average distance of the surrounding amino acids to their respective matching amino acids to be selected.")
-    parser.add_argument("-t3", "--threshold-others", type=float, default=config['threshold_others'],
-                        help="Maximum distance to the matching amino acid to be considered in the final solution.")
-    parser.add_argument("-i", "--iterations", type=int, default=config['iterations'], help="Maximum number of iterations")
-    parser.add_argument("-f", "--first-in-file", type=int, default=config['first_in_file'], help="First protein to perform tests with")
-    parser.add_argument("-m", "--max-protein", type=int, default=config['max_protein'],
-                        help="Max number of proteins to perform tests with")
-    parser.add_argument("-s", "--protein-file", type=str, default=config['protein_file'],
-                        help="Path to the file containing the name of the proteins to be tested")
-    parser.add_argument("-af", "--alphafold-proteins-path", type=str, default=config['alphafold_proteins_path'],
-                        help="Path to Alphafold proteins folder")
-    parser.add_argument("-p", "--seed-protein-file", type=str, default=config['seed_protein_file'],
-                        help="Path to seed protein file")
-    parser.add_argument("-d", "--delete-protein-files", dest="delete_protein_files", action="store_true", default=config['delete_protein_files'],
-                        help="Delete protein files")
-    parser.add_argument("-pr", "--path-results", type=str, default=config['path_results'], help="Path of the results")    
-    parser.add_argument("-ts", "--testing", type=str, default=config['testing'],
-                    help="Testing one protein. This argument takes the Uniprot Id of the protein.")
-    parser.add_argument("-kv", "--KVFinder",dest="KVFinder", action="store_true", default=config['KVFinder'],
-                    help="Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.")
-    
-    
-    args = parser.parse_args()
-    return vars(args)
-
+        parser = argparse.ArgumentParser(description="ActSeek Program")
+        parser.add_argument("-a", "--active-site", type=str, default=config['active_site'],
+                            help="Position of the amino acids involved in the search")
+        parser.add_argument("-sa", "--selected-active", type=str, default=config['selected_active'],
+                            help="Position of the three amino acids involved in the search.")
+        parser.add_argument("-g", "--aa-grouping", type=json.loads, default=json.dumps(config['aa_grouping']),
+                            help="Amino acid grouping")
+        parser.add_argument("-r", "--random-seed", type=int, default=config['random_seed'], help="Random seed")
+        parser.add_argument("-t1", "--threshold", type=float, default=config['threshold'],
+                            help="Threshold of the average distance of the mapped amino acids.")
+        parser.add_argument("-t1c", "--threshold-combinations", type=float, default=config['threshold_combinations'],
+                            help="Threshold for choosing the possible hits.")
+        parser.add_argument("-t2", "--aa-surrounding", type=int, default=config['aa_surrounding'],
+                            help="Number of amino acids around the selected amino acids that will be taken into account while deciding which is the active site.")
+        parser.add_argument("-t2t", "--aa-surrounding-threshold", type=float, default=config['aa_surrounding_threshold'],
+                            help="Maximum average distance of the surrounding amino acids to their respective matching amino acids to be selected.")
+        parser.add_argument("-t3", "--threshold-others", type=float, default=config['threshold_others'],
+                            help="Maximum distance to the matching amino acid to be considered in the final solution.")
+        parser.add_argument("-i", "--iterations", type=int, default=config['iterations'], help="Maximum number of iterations")
+        parser.add_argument("-f", "--first-in-file", type=int, default=config['first_in_file'], help="First protein to perform tests with")
+        parser.add_argument("-m", "--max-protein", type=int, default=config['max_protein'],
+                            help="Max number of proteins to perform tests with")
+        parser.add_argument("-s", "--protein-file", type=str, default=config['protein_file'],
+                            help="Path to the file containing the name of the proteins to be tested")
+        parser.add_argument("-af", "--alphafold-proteins-path", type=str, default=config['alphafold_proteins_path'],
+                            help="Path to Alphafold proteins folder")
+        parser.add_argument("-p", "--seed-protein-file", type=str, default=config['seed_protein_file'],
+                            help="Path to seed protein file")
+        parser.add_argument("-d", "--delete-protein-files", dest="delete_protein_files", action="store_true", default=config['delete_protein_files'],
+                            help="Delete protein files")
+        parser.add_argument("-pr", "--path-results", type=str, default=config['path_results'], help="Path of the results")    
+        parser.add_argument("-ts", "--testing", type=str, default=config['testing'],
+                        help="Testing one protein. This argument takes the Uniprot Id of the protein.")
+        parser.add_argument("-kv", "--KVFinder",dest="KVFinder", action="store_true", default=config['KVFinder'],
+                        help="Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.")
+        
+        
+        args = parser.parse_args()
+        return vars(args)
+    except:
+        print("Config file not found.")
+        return None
 
 def main():
     """
@@ -446,7 +449,11 @@ def main():
     and process proteins using multiprocessing.
     """
     global config
-    config = parse_args()
+    config = parse_args()   
+
+    if config == None:
+        return 
+
     if os.path.isdir(config['path_results']) == False:
         os.mkdir(config['path_results'])
 
