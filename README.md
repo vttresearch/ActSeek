@@ -92,6 +92,10 @@ The program accepts several command line arguments to override the configuration
 ```sh
 actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
 ```
+I you are using more than 3 amino acids, remember to add the "selected_active" parameter:
+```sh
+actseek -a "145,180,292,448,449,478" -sa "2,3,5" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
+```
 #### Testing one protein
 If you are interested on getting the output mapping file for one specific protein, the option -ts can be used followed by the id of the protein you want to test. For example:
 ```sh
