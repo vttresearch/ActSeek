@@ -88,6 +88,8 @@ The program accepts several command line arguments to override the configuration
 
 -kv, --KVFinder:Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.
 
+-c, --custom: Using a custom structure database not connected with Alphafold for the search.
+
 #### Comman line example
 ```sh
 actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
@@ -170,7 +172,9 @@ This will output the mapping file and the pdb file of the protein P45370 aligned
     
     "testing": "",
 
-    "KVFinder": false
+    "KVFinder": false,
+
+    "custom": false
     
 }
 
