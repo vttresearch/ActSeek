@@ -370,7 +370,7 @@ def process_protein(case_protein_name,
                 pass
 
         if os.path.isfile(case_protein_filepath) == False:
-            case_protein_filename = case_protein_name
+            case_protein_filename = case_protein_name+".pdb"
             case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}"   
 
         # Main function of the algorithm       
