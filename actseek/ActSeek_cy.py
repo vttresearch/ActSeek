@@ -369,7 +369,10 @@ def process_protein(case_protein_name,
             except requests.exceptions.RequestException:
                 pass
 
-       
+        if os.path.isfile(case_protein_filepath) == False:
+            case_protein_filename = case_protein_name
+            case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}"   
+
         # Main function of the algorithm       
         ActSeek_main(config.aa_grouping, case_protein_filepath, config.iterations, case_protein_name, seed_selected,seed_coords, cavity_coords,aaCav, active, real_index_seed, cavity_coords_used, cavity_coords_cb_used,active_site)
 
