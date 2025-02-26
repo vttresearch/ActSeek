@@ -168,7 +168,9 @@ This will output the mapping file and the pdb file of the protein P45370 aligned
     
     "path_results": "results",
     
-    "testing": ""
+    "testing": "",
+
+    "KVFinder": false
     
 }
 
