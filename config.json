@@ -39,5 +39,6 @@
     "delete_protein_files": true,
     "path_results": "results2",
     "testing": "",
-    "KVFinder": false
+    "KVFinder": false,
+    "custom": false
 }

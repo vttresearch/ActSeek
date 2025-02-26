@@ -356,22 +356,23 @@ def process_protein(case_protein_name,
     case_protein_name = case_protein_name
 
     try:
-        # Download the protein structure from alphafold database
-        case_protein_filename = f"AF-{case_protein_name}-F1-model_v4.pdb"
-        case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}"
+        if config.custom == False:
+            # Download the protein structure from alphafold database
+            case_protein_filename = f"AF-{case_protein_name}-F1-model_v4.pdb"
+            case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}"
 
-        if os.path.isfile(case_protein_filepath) == False:
-            try:
-                url= f"https://alphafold.ebi.ac.uk/files/{case_protein_filename}"
-                response = requests.head(url)
-                response.raise_for_status()
-                wget.download(url, out=case_protein_filepath, bar=None)
-            except requests.exceptions.RequestException:
-                pass
+            if os.path.isfile(case_protein_filepath) == False:
+                try:
+                    url= f"https://alphafold.ebi.ac.uk/files/{case_protein_filename}"
+                    response = requests.head(url)
+                    response.raise_for_status()
+                    wget.download(url, out=case_protein_filepath, bar=None)
+                except requests.exceptions.RequestException:
+                    pass
 
-        if os.path.isfile(case_protein_filepath) == False:
+        else:
             case_protein_filename = case_protein_name+".pdb"
-            case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}"   
+            case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}" 
 
         # Main function of the algorithm       
         ActSeek_main(config.aa_grouping, case_protein_filepath, config.iterations, case_protein_name, seed_selected,seed_coords, cavity_coords,aaCav, active, real_index_seed, cavity_coords_used, cavity_coords_cb_used,active_site)
@@ -438,6 +439,8 @@ def parse_args():
                         help="Testing one protein. This argument takes the Uniprot Id of the protein.")
         parser.add_argument("-kv", "--KVFinder",dest="KVFinder", action="store_true", default=config['KVFinder'],
                         help="Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.")
+        parser.add_argument("-c", "--custom",dest="custom", action="store_true", default=config['custom'],
+                        help="Using a custom structure database not connected with Alphafold for the search.")
         
         
         args = parser.parse_args()
