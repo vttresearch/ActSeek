@@ -148,7 +148,104 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
         seed_resid_to_array_index
     )
 
+def read_pdbs_seed_with_radius(active_residue_indices, seed_pdb_path, radius):
+    """
+    Read a PDB file from the specified path, parse CA and CB coordinates, identify active site residues, 
+    and return relevant data structures for further analysis.
 
+    Parameters
+    ----------
+    active_residue_indices : list of int
+        Indices of residues considered active in the structure.
+    seed_pdb_path : str
+        File path to the PDB file used as the seed structure.
+
+    Returns
+    -------
+    numpy.ndarray
+        Array of C-alpha coordinates from all residues in the seed PDB.
+    numpy.ndarray
+        Array of C-alpha coordinates from the active site residues.
+    numpy.ndarray
+        Array of C-beta coordinates from the active site residues.
+    dict
+        A dictionary mapping each residue ID (int) to its three-letter residue name (str).
+    numpy.ndarray
+        Array of active site residue IDs.
+    dict
+        Mapping of residue IDs to their corresponding array indices.
+
+    Notes
+    -----
+    For 'GLY' residues, a placeholder coordinate [-10000000, -10000000, -10000000] 
+    is inserted to represent the missing C-beta atom.
+    """
+    parser = PDBParser()
+    parsed_seed_structure = parser.get_structure("complex", seed_pdb_path)
+
+    seed_ca_coords = []
+    active_site_ca_coords = []
+    active_site_cb_coords = []
+    seed_residue_names = {}
+    active_site_seed_resids = []
+    seed_resid_to_array_index = {}
+    index_counter = 0
+
+    for model in parsed_seed_structure:
+        for chain in model:
+            for residue in chain:
+                seed_resid_to_array_index[int(residue.get_id()[1])] = index_counter
+                index_counter += 1
+
+                for atom in residue:
+                    if "CA" in atom.fullname:
+                        seed_ca_coords.append(atom.get_coord())
+
+                seed_residue_names[int(residue.get_id()[1])] = str(residue.get_resname())
+                if residue.get_id()[1] in active_residue_indices:
+                    active_site_seed_resids.append(int(residue.get_id()[1]))
+
+                    for atom in residue:
+                        if "CA" in atom.fullname:
+                            active_site_ca_coords.append(atom.get_coord())
+                        if "CB" in atom.fullname:
+                            active_site_cb_coords.append(atom.get_coord())
+
+                    if residue.get_resname() == "GLY":
+                        active_site_cb_coords.append([-10000000, -10000000, -10000000])
+
+    for model in parsed_seed_structure:
+        for chain in model:
+            for residue in chain:
+                index_counter += 1
+
+                for atom in residue:
+                    if "CA" in atom.fullname:
+                        dist = np.linalg.norm(active_site_ca_coords[0] - atom.get_coord())
+                        break
+
+                if dist < radius and dist > 0.02: 
+                    active_site_seed_resids.append(int(residue.get_id()[1]))
+                    seed_residue_names[int(residue.get_id()[1])] = "UNK"
+                    for atom in residue:
+                        if "CA" in atom.fullname:
+                            active_site_ca_coords.append(atom.get_coord())
+                        if "CB" in atom.fullname:
+                            active_site_cb_coords.append(atom.get_coord())
+
+                    if residue.get_resname() == "GLY":
+                        active_site_cb_coords.append([-10000000, -10000000, -10000000])
+
+    
+
+    return (
+        np.array(seed_ca_coords),
+        np.array(active_site_ca_coords),
+        np.array(active_site_cb_coords),
+        seed_residue_names,
+        np.array(active_site_seed_resids),
+        seed_resid_to_array_index
+    )
 
 def print_protein(translation_vector, rotation, path, name):
     """
@@ -252,14 +349,18 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
         return None, None, None, None
 
     
-
+    #print(case_protein_filename)
     # Produces a vector with all the possible amino acid correspondences based on the aa_des dictionary
     pc = active_site.get_possible_correspondences(protein_coords, aa, real_index)
     threshold = config.threshold_others
 
+    #print(pc)
+
     # Calculate the valid combinations by removing all the combinations of 3 amino acid mapping that are not in the appropiated distances with a threshold of 1 (that coud be an argument for the main function to be defined by the user)
     valid_combinations = active_site.get_all_possible_combinations(pc, protein_coords, aa, real_index, threshold,
                                                                    aa_des)
+
+    #print(valid_combinations)
 
     if len(valid_combinations) > 0:
         distances, distances_arround, t_transformed, solution, translation_vector, rotation = ActSeekLib.actseek_search(
@@ -441,6 +542,8 @@ def parse_args():
                         help="Uses KVFinder to compare the cavity where the active sides are with the cavity in the seed structure.")
         parser.add_argument("-c", "--custom",dest="custom", action="store_true", default=config['custom'],
                         help="Using a custom structure database not connected with Alphafold for the search.")
+        parser.add_argument("-rd", "--radius", type=float, default=config['radius'],
+                            help="Threshold of the average distance of the mapped amino acids.")
         
         
         args = parser.parse_args()
@@ -454,18 +557,19 @@ def main():
     Main function to set up configuration, reads and process the seed protein, create necessary directories,
     and process proteins using multiprocessing.
     """
+   
     global config
     config = parse_args()   
 
     if config == None:
         return 
-
+    
     if os.path.isdir(config['path_results']) == False:
         os.mkdir(config['path_results'])
 
     if os.path.isdir(config['alphafold_proteins_path']) == False:
         os.mkdir(config['alphafold_proteins_path'])
-
+        
     with tempfile.TemporaryDirectory(dir=config['path_results']) as tmpdir:
         config['random_dir'] = tmpdir
         
@@ -476,25 +580,62 @@ def main():
         random.seed(config.random_seed)
 
 
-     
         seed_protein = config.seed_protein_file
         aa_active = [int(x) for x in config.active_site.split(",")]
-        try:
-            seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed(aa_active,
-                seed_protein)
-        except:
-            print("Seed pdb file not found or the file is not readable.")
-            return
+        #print(aa_active)
+
+        if len(aa_active) < 3: 
+            try:
+                radius = config.radius
+                seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed_with_radius(aa_active,
+                    seed_protein, radius)                 
+            except:
+                print("Seed pdb file not found or the file is not readable.")
+                return
+            amino_acids_used_for_search = np.array([0,1,2])
+        else:
+            try:
+                seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed(aa_active,
+                    seed_protein)
+            except:
+                print("Seed pdb file not found or the file is not readable.")
+                return
         
-        amino_acids_used_for_search = np.array([int(x) for x in config.selected_active.split(",")])
+            amino_acids_used_for_search = np.array([int(x) for x in config.selected_active.split(",")])
+
         active_used_for_search = np.array([active_amino_acid_index[x] for x in amino_acids_used_for_search])
         active_coords_used_for_search = np.array([cavity_coords[x] for x in amino_acids_used_for_search])
         active_coords_cb_used_for_search = np.array([cavity_coords_cb[x] for x in amino_acids_used_for_search])
 
+        #print(active_used_for_search)
         # Creates an object of the class Active_side where all the information is added
-        active_site = ActSeekLib.Active_site(active_used_for_search, active_amino_acids_dict, active_coords_used_for_search, config.aa_grouping)
+        active_site = ActSeekLib.Active_site(active_used_for_search, active_amino_acids_dict, active_coords_used_for_search, config.aa_grouping, config.radius)
         active_site.get_AA_groups(False)
         
+
+        
+        '''residues = active_site.amino_acid_list
+        print(residues[0].index)
+        print(residues[0].real_index)        
+        print(residues[0].amino_acid_class)
+        print(residues[0].amino_acid_id)
+        print(residues[0].distances)
+
+
+        print(residues[1].index)
+        print(residues[1].real_index)        
+        print(residues[1].amino_acid_class)
+        print(residues[1].amino_acid_id)
+        print(residues[1].distances)
+
+
+        print(residues[2].index)
+        print(residues[2].real_index)        
+        print(residues[2].amino_acid_class)
+        print(residues[2].amino_acid_id)
+        print(residues[2].distances)'''
+
+
 
         if config.KVFinder == True:
             seed_selected = get_cavities(seed_protein, active_amino_acid_index) 
