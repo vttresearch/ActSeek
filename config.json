@@ -40,5 +40,6 @@
     "path_results": "results2",
     "testing": "",
     "KVFinder": false,
-    "custom": false
+    "custom": false,
+    "radius": 5.0
 }

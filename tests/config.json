@@ -22,7 +22,8 @@
         "PHE": "PHE",
         "TYR": "PHE",
         "TRP": "PHE",
-        "HSD": "HIS"
+        "HSD": "HIS",
+        "UNK": "UNK"
     },
     "random_seed": 0,
     "threshold": 2.0,
@@ -40,5 +41,6 @@
     "path_results": "results",
     "testing": "",
     "KVFinder": false,
-    "custom": false
+    "custom": false,
+    "radius": 5.0
 }
