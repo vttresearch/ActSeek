@@ -219,7 +219,7 @@ cdef class Active_site:
             for amino_acid1 in range(0, len(case_protein)):
                 try:
                     if self.amino_acid_groups[case_protein_amino_acids[real_index[amino_acid1]]] == known.get_class():
-                            correspondences.append([amino_acid1, amino_acid2.get_by_index()])
+                            correspondences.append([amino_acid1, known.get_by_index()])
                             testing.append(amino_acid1)
                 except:
                     pass
@@ -246,6 +246,7 @@ cdef class Active_site:
                 for amino_acid2 in self.amino_acid_list:
                     try:
                         if self.amino_acid_groups[case_protein_amino_acids[real_index[amino_acid1]]] == amino_acid2.get_class():
+                            #print(amino_acid1, amino_acid2.get_by_index())
                             correspondences.append([amino_acid1, amino_acid2.get_by_index()])
                     except:
                         pass
@@ -294,7 +295,8 @@ cdef class Active_site:
                 continue
 
             #print(distinct_classes, combo)
-
+            #if combo[0][0]==206 and combo[1][0] == 341 and combo[2][0] == 382:
+            #    print(combo)
             dist1 = self.calculate_distance_in_case_protein(combo[0][0], combo[1][0], protein_coords)
             if dist1 is None:
                 continue

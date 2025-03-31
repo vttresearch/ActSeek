@@ -59,7 +59,10 @@ def read_pdbs_case(case_protein_path):
                         cb_coords.append(atom.get_coord())
                 if residue.get_resname() == "GLY":
                     cb_coords.append([-10000000, -10000000, -10000000])
-                residue_name_map[int(residue.get_id()[1])] = str(residue.get_resname())
+                if str(residue.get_resname()) in config.aa_grouping:
+                    residue_name_map[int(residue.get_id()[1])] = str(residue.get_resname())
+                else:
+                    residue_name_map[int(residue.get_id()[1])] = 'UNK'
                 global_res_index[residue_counter] = int(residue.get_id()[1])
                 residue_counter += 1
             break
@@ -124,8 +127,10 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
                 for atom in residue:
                     if "CA" in atom.fullname:
                         seed_ca_coords.append(atom.get_coord())
-
-                seed_residue_names[int(residue.get_id()[1])] = str(residue.get_resname())
+                if str(residue.get_resname()) in config.aa_grouping:
+                    seed_residue_names[int(residue.get_id()[1])] = str(residue.get_resname())
+                else:
+                    seed_residue_names[int(residue.get_id()[1])] = 'UNK'
 
                 if residue.get_id()[1] in active_residue_indices:
                     active_site_seed_resids.append(int(residue.get_id()[1]))

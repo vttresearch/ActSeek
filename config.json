@@ -22,7 +22,8 @@
         "PHE": "PHE",
         "TYR": "TYR",
         "TRP": "TRP",
-        "HSD": "HIS"
+        "HSD": "HIS",
+        "UNK": "UNK
     },
     "random_seed": 0,
     "threshold": 1.0,
