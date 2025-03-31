@@ -158,22 +158,48 @@ cdef class Active_site:
         cdef object amino_acid
         cdef list distances
         distances_list = []
+        isThere1 =False
+        isThere2 =False
         for amino_acid in self.amino_acid_list:
             if amino_acid.get_class() == amino_acid_class:
-                distances = amino_acid.get_distance(amino_acid_class2)
-                if distances == None:
-                    continue
-                for d in distances:
-                    distances_list.append(d)
-
-            if amino_acid.get_class() == 'UNK':
-                distances = amino_acid.get_distance('UNK')
-                if distances==None:
-                    continue
-                for d in distances:
-                    distances_list.append(d)
+                isThere1 =True
+            if amino_acid.get_class() == amino_acid_class2:
+                isThere2 = True
+           
+        if isThere1 == False and isThere2:
+            for amino_acid in self.amino_acid_list:
+                if amino_acid.get_class() == 'UNK':
+                    distances = amino_acid.get_distance(amino_acid_class2)
+                    if distances == None:
+                        continue
+                    for d in distances:
+                        distances_list.append(d)
+        elif isThere1 and isThere2 ==False:
+            for amino_acid in self.amino_acid_list:
+                if amino_acid.get_class() == amino_acid_class:
+                    distances = amino_acid.get_distance('UNK')
+                    if distances == None:
+                        continue
+                    for d in distances:
+                        distances_list.append(d)
+        elif isThere1==False and isThere2 ==False:
+            for amino_acid in self.amino_acid_list:
+                if amino_acid.get_class() == 'UNK':
+                    distances = amino_acid.get_distance('UNK')
+                    if distances == None:
+                        continue
+                    for d in distances:
+                        distances_list.append(d)
+        elif isThere1 and isThere2:
+            for amino_acid in self.amino_acid_list:
+                if amino_acid.get_class() == amino_acid_class:
+                    distances = amino_acid.get_distance(amino_acid_class2)
+                    if distances == None:
+                        continue
+                    for d in distances:
+                        distances_list.append(d)
         return distances_list
-
+        
     def get_aa_by_index(self, int index):
         cdef object amino_acid
         for amino_acid in self.amino_acid_list:
