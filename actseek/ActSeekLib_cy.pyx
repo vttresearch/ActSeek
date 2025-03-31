@@ -160,11 +160,15 @@ cdef class Active_site:
         distances_list = []
         isThere1 =False
         isThere2 =False
+        isThere3 =False
+        if amino_acid_class == amino_acid_class2:
+            isThere3=True
         for amino_acid in self.amino_acid_list:
             if amino_acid.get_class() == amino_acid_class:
                 isThere1 =True
             if amino_acid.get_class() == amino_acid_class2:
                 isThere2 = True
+        
            
         if isThere1 == False and isThere2:
             for amino_acid in self.amino_acid_list:
@@ -194,6 +198,15 @@ cdef class Active_site:
             for amino_acid in self.amino_acid_list:
                 if amino_acid.get_class() == amino_acid_class:
                     distances = amino_acid.get_distance(amino_acid_class2)
+                    if distances == None:
+                        continue
+                    for d in distances:
+                        distances_list.append(d)
+        
+        if isThere3 and self.are_unknown:
+            for amino_acid in self.amino_acid_list:
+                if amino_acid.get_class() == amino_acid_class:
+                    distances = amino_acid.get_distance('UNK')
                     if distances == None:
                         continue
                     for d in distances:
