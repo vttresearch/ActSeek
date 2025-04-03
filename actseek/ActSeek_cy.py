@@ -301,20 +301,23 @@ def get_cavities(protein, res_active_site, volume_cutoff=5.0, removal_distance=2
     ncav, cavities = pyKVFinder.detect(atomic, vertices, step=step, probe_in=probe_in, probe_out=probe_out, removal_distance=removal_distance, volume_cutoff=volume_cutoff, surface=surface, nthreads=1)
     residues = pyKVFinder.constitutional(cavities, atomic, vertices, step=step, probe_in=probe_in, ignore_backbone=False, nthreads=1)
     
+    #print(residues)
+    
     inside=[]
     case_selected=[]
     for k, res in residues.items():
         selected=False
         for r in res:
             for aa in res_active_site:
-                if str(aa) == r[0]:
+                aa = aa.split("_")
+                if str(aa[1]) == r[1] and str(aa[0]) == r[0]:
                     selected =True
                     break
             if selected:
                 break
         if selected:
             for r in res:
-                if r[0] not in inside:
+                if r[0] not in inside and r[2] in config.aa_grouping:
                     case_selected.append(r)
                     inside.append(r[0])
     return case_selected
@@ -409,7 +412,7 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
                 aa_cavity = aaCav[active[int(aamap[1])]]
                 #print(aa_cavity)
                 strmapping = strmapping + str(real_index[aamap[0]]) +"_"+ aa_protein + "-" + str(
-                    active[int(aamap[1])])  +"_"+ aa_cavity + ";"
+                    active[int(aamap[1])])  +"_"+ aa_cavity + "; "
 
 
             if config.KVFinder == True:                
@@ -654,7 +657,7 @@ def main():
         else:
             seed_selected=None
 
-       
+        #print("seed_selected",seed_selected)
 
         processProteinWithData = partial(
             process_protein,

@@ -499,7 +499,7 @@ cpdef calculate_distance_single(int index1, int index2, cnp.ndarray case_protein
 
 
 
-def calculate_final_distance(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, valid_combinations, index, amino_acid_groups, case_protein_dict, real_index, search_amino_acids_dict, search_indexes, search_alphac_coords, search_betac_coords, threshold):
+def calculate_final_distance(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, valid_combinations, index, amino_acid_groups, case_protein_dict, real_index, search_amino_acids_dict, search_indexes, search_alphac_coords, search_betac_coords, threshold,real_index_b,rev_real_index):
     """
     Calculate the final distance between the transformed case protein coordinates and the search coordinates. The variable search_alphac_coords_all is different from search_alphac_coords as it contains all the amino acids defined by the user,
     while search_alphac_coords contains only the 3 selected amino acids used for the actual search.
@@ -559,25 +559,36 @@ def calculate_final_distance(search_alphac_coords_all, case_protein_alphac_coord
     t_transformed = case_protein_alphac_coords @ rotation + translation_vector
 
     dist, indices = calculate_distances(t_transformed, search_alphac_coords_all, threshold)
+
+    #print("indices",indices)
+    #print(mapsel)
+    
+    
+
+    #print(real_index_b)
     #print(mapsel)
     distance_sum = 0
     mapping = []
     distances = []    
-    amino_acid_groups_case = [amino_acid_groups[case_protein_dict[real_index[ind[0]]]] for ind in mapsel]
+    amino_acid_groups_case = [amino_acid_groups[case_protein_dict[real_index_b[ind[0]]]] for ind in indices]
     amino_acid_groups_search = [amino_acid_groups[search_amino_acids_dict[search_indexes[e]]] for e in range(len(search_alphac_coords_all))]
 
-    #print("missing", amino_acid_groups_case)
-
+    #print("amino_acid_groups_case", amino_acid_groups_case)
+    #print("seed",amino_acid_groups_search)
+    #print("case",amino_acid_groups_case)
     for e in range(len(search_alphac_coords_all)):
         valid_indices = [i for i, ind in enumerate(indices) if ind[1] == e and (amino_acid_groups_case[i] == amino_acid_groups_search[e] or amino_acid_groups_search[e]=='UNK')]
         if valid_indices:
             minindex = min(valid_indices, key=lambda i: dist[i])
             distances.append(dist[minindex])
             distance_sum += dist[minindex]
-            mapping.append(mapsel[minindex])
+            map_index= [rev_real_index[real_index_b[indices[minindex][0]]],indices[minindex][1]]
+            mapping.append(map_index)
 
     if not mapping:
         distance_sum = 100000
+
+    #print("mapping",mapping)
     return np.array(mapping), distance_sum, distances, t_transformed, translation_vector, rotation
 
 
@@ -681,6 +692,13 @@ def actseek_search(search_alphac_coords_all, case_protein_alphac_coords, case_pr
     distances_arround_mean= None
     final_distances_arround=None
 
+
+    real_index_b={}
+    rev_real_index={}
+    for k,i in real_index.items():
+        real_index_b[int(k.split("_")[0])] = i
+        rev_real_index[i]=k
+
     # If the number of valid combinations is less than the number of iterations, the algorithm test each combination one by one, if not, it takes the combination randomly
     for i in range(len(valid_combinations)):
         try:
@@ -691,7 +709,7 @@ def actseek_search(search_alphac_coords_all, case_protein_alphac_coords, case_pr
             else:
                 j=i
 
-            mapping, distances_sum, distances, case_protein_transformed, translation_vector, rotation= calculate_final_distance(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, valid_combinations, j, amino_acids_groups, case_protein_dict, real_index, search_amino_acids_dict, search_indexes, search_alphac_coords,search_betac_coords, threshold)
+            mapping, distances_sum, distances, case_protein_transformed, translation_vector, rotation= calculate_final_distance(search_alphac_coords_all, case_protein_alphac_coords, case_protein_betac_coords, valid_combinations, j, amino_acids_groups, case_protein_dict, real_index, search_amino_acids_dict, search_indexes, search_alphac_coords,search_betac_coords, threshold,real_index_b,rev_real_index)
             if type(rotation) == type(None):
                 continue
             if len(mapping) < 3:
@@ -936,6 +954,9 @@ cpdef compare_cavity(list case_selected, list seed_selected, list distances, lis
         for res in seed_selected:
             residues_seed.append(int(res[0]))
             id_seed[int(res[0])] = res[2]
+
+        #print("residues_seed",residues_seed)
+        #print(id_seed)
 
         # Gather case info
         for res in case_selected:
