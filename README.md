@@ -1,4 +1,4 @@
-# ActSeek
+![image](https://github.com/user-attachments/assets/92532fa4-0cc2-4f10-9c2f-f84e76a137a9)# ActSeek
 
 ActSeek is a tool for enzyme mining in the Alphafold database. ActSeek uses the coordinates of at least 3 user defined amino acids from a seed structure to find other proteins with the same (or similar) amino acids in the same position. 
 
@@ -103,7 +103,10 @@ If you are interested on getting the output mapping file for one specific protei
 ```sh
 actseek -a "292_A,448_A,478_A" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -ts P45370
 ```
-This will output the mapping file and the pdb file of the protein P45370 aligned with the seed protein (in this case Q9ZHI2). The alignment is based on the ActSeek algorithm using only the selected amino acids as mapping seed. 
+This will output the mapping file and the pdb file of the protein P45370 superposed with the seed protein (in this case Q9ZHI2). The alignment is based on the ActSeek algorithm using only the selected amino acids as mapping seed. 
+
+![image](https://github.com/user-attachments/assets/1c94d140-a78f-45ac-8630-69bd26ec38d0)
+To visualize the protein P45379 superpostion with the seed protein, I open the file P45279.pdb created by ActSeek in the results folder and the seed structure using Pymol.
 
 ### Needed files
 - Seed pdb file (in tests it is AF-Q9ZHI2-F1-model_v4.pdb)
