@@ -611,16 +611,18 @@ def main():
                     seed_protein)
                 #print(active_amino_acid_index) 
             except:
-                raise
                 print("Seed pdb file not found or the file is not readable.")
                 return
         
             amino_acids_used_for_search = np.array([int(x) for x in config.selected_active.split(",")])
         #print(amino_acids_used_for_search)
-        active_used_for_search = np.array([active_amino_acid_index[x] for x in amino_acids_used_for_search])
-        active_coords_used_for_search = np.array([cavity_coords[x] for x in amino_acids_used_for_search])
-        active_coords_cb_used_for_search = np.array([cavity_coords_cb[x] for x in amino_acids_used_for_search])
-        
+        try:
+            active_used_for_search = np.array([active_amino_acid_index[x] for x in amino_acids_used_for_search])
+            active_coords_used_for_search = np.array([cavity_coords[x] for x in amino_acids_used_for_search])
+            active_coords_cb_used_for_search = np.array([cavity_coords_cb[x] for x in amino_acids_used_for_search])
+        except:
+            print("The input is not well formed")
+            return        
         #print(active_used_for_search)
         # Creates an object of the class Active_side where all the information is added
         active_site = ActSeekLib.Active_site(active_used_for_search, active_amino_acids_dict, active_coords_used_for_search, config.aa_grouping, config.radius)
