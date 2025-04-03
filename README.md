@@ -92,16 +92,16 @@ The program accepts several command line arguments to override the configuration
 
 #### Comman line example
 ```sh
-actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
+actseek -a "292_A,448_A,478_A" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
 ```
 I you are using more than 3 amino acids, remember to add the "selected_active" parameter:
 ```sh
-actseek -a "145,180,292,448,449,478" -sa "2,3,5" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
+actseek -a "145_A,180_A,292_A,448_A,449_A,478_A" -sa "2,3,5" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -kv
 ```
 #### Testing one protein
 If you are interested on getting the output mapping file for one specific protein, the option -ts can be used followed by the id of the protein you want to test. For example:
 ```sh
-actseek -a "292,448,478" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -ts P45370
+actseek -a "292_A,448_A,478_A" -s test.txt -p AF-Q9ZHI2-F1-model_v4.pdb -pr "results" -t1 3 -ts P45370
 ```
 This will output the mapping file and the pdb file of the protein P45370 aligned with the seed protein (in this case Q9ZHI2). The alignment is based on the ActSeek algorithm using only the selected amino acids as mapping seed. 
 
@@ -114,7 +114,7 @@ This will output the mapping file and the pdb file of the protein P45370 aligned
 
 {
 
-    "active_site": "292,448,478",
+    "active_site": "292_A,448_A,478_A",
     
     "selected_active": "0,1,2",
     
