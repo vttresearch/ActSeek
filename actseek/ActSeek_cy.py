@@ -9,11 +9,11 @@ import actseek.ActSeekLib_cy as ActSeekLib
 import traceback
 from tqdm import tqdm
 import wget
-import requests
+import requests # type: ignore
 import json
 import tempfile
 from functools import partial
-import pyKVFinder
+import pyKVFinder # type: ignore
 
 warnings.filterwarnings("ignore")
 
@@ -46,11 +46,11 @@ def read_pdbs_case(case_protein_path):
     residue_name_map = {}
     ca_coords = []
     cb_coords = []
-    residue_counter = 0
+    
     global_res_index = {}
-
+    residue_counter = 0
     for model in pdb_structure:
-        for chain in model:
+        for chain in model:            
             for residue in chain:
                 for atom in residue:
                     if "CA" in atom.fullname:
@@ -60,12 +60,10 @@ def read_pdbs_case(case_protein_path):
                 if residue.get_resname() == "GLY":
                     cb_coords.append([-10000000, -10000000, -10000000])
                 if str(residue.get_resname()) in config.aa_grouping:
-                    residue_name_map[int(residue.get_id()[1])] = str(residue.get_resname())
-                else:
-                    residue_name_map[int(residue.get_id()[1])] = 'UNK'
-                global_res_index[residue_counter] = int(residue.get_id()[1])
-                residue_counter += 1
-            break
+                    residue_name_map[str(residue.get_id()[1])+'_'+chain.get_id()] = str(residue.get_resname())                
+                    global_res_index[str(residue_counter)+"_"+chain.get_id()] = str(residue.get_id()[1])+"_"+chain.get_id()
+                    residue_counter += 1
+            
 
     return (
         np.array(ca_coords),
@@ -116,24 +114,22 @@ def read_pdbs_seed(active_residue_indices, seed_pdb_path):
     seed_residue_names = {}
     active_site_seed_resids = []
     seed_resid_to_array_index = {}
-    index_counter = 0
+    
 
+   
     for model in parsed_seed_structure:
+        index_counter = 0
         for chain in model:
-            for residue in chain:
-                seed_resid_to_array_index[int(residue.get_id()[1])] = index_counter
-                index_counter += 1
-
-                for atom in residue:
-                    if "CA" in atom.fullname:
-                        seed_ca_coords.append(atom.get_coord())
+            for residue in chain: 
                 if str(residue.get_resname()) in config.aa_grouping:
-                    seed_residue_names[int(residue.get_id()[1])] = str(residue.get_resname())
-                else:
-                    seed_residue_names[int(residue.get_id()[1])] = 'UNK'
-
-                if residue.get_id()[1] in active_residue_indices:
-                    active_site_seed_resids.append(int(residue.get_id()[1]))
+                    seed_residue_names[str(residue.get_id()[1])+'_'+chain.get_id()] = str(residue.get_resname())                
+                    seed_resid_to_array_index[str(residue.get_id()[1])+'_'+chain.get_id()] = str(index_counter)+"_"+chain.get_id()
+                    index_counter += 1
+                    for atom in residue:
+                        if "CA" in atom.fullname:
+                            seed_ca_coords.append(atom.get_coord())
+                if str(residue.get_id()[1])+"_"+chain.get_id() in active_residue_indices:
+                    active_site_seed_resids.append(str(residue.get_id()[1])+"_"+chain.get_id())
 
                     for atom in residue:
                         if "CA" in atom.fullname:
@@ -199,16 +195,16 @@ def read_pdbs_seed_with_radius(active_residue_indices, seed_pdb_path, radius):
     for model in parsed_seed_structure:
         for chain in model:
             for residue in chain:
-                seed_resid_to_array_index[int(residue.get_id()[1])] = index_counter
+                seed_resid_to_array_index[str(residue.get_id()[1])+"_"+chain.get_id()] = index_counter
                 index_counter += 1
 
                 for atom in residue:
                     if "CA" in atom.fullname:
                         seed_ca_coords.append(atom.get_coord())
 
-                seed_residue_names[int(residue.get_id()[1])] = str(residue.get_resname())
-                if residue.get_id()[1] in active_residue_indices:
-                    active_site_seed_resids.append(int(residue.get_id()[1]))
+                seed_residue_names[str(residue.get_id()[1])+"_"+chain.get_id()] = str(residue.get_resname())
+                if str(residue.get_id()[1])+"_"+chain.get_id() in active_residue_indices:
+                    active_site_seed_resids.append(str(residue.get_id()[1])+"_"+chain.get_id())
 
                     for atom in residue:
                         if "CA" in atom.fullname:
@@ -230,8 +226,8 @@ def read_pdbs_seed_with_radius(active_residue_indices, seed_pdb_path, radius):
                         break
 
                 if dist < radius and dist > 0.02: 
-                    active_site_seed_resids.append(int(residue.get_id()[1]))
-                    seed_residue_names[int(residue.get_id()[1])] = "UNK"
+                    active_site_seed_resids.append(str(residue.get_id()[1])+"_"+chain.get_id())
+                    seed_residue_names[str(residue.get_id()[1])+"_"+chain.get_id()] = "UNK"
                     for atom in residue:
                         if "CA" in atom.fullname:
                             active_site_ca_coords.append(atom.get_coord())
@@ -349,11 +345,11 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
     # Reads the structures of the seed and the case structures with the Biopython library and extract the needed information
 
     try:
-        protein_coords, protein_coords_cb, aa, real_index= read_pdbs_case(case_protein_filename)
+        protein_coords, protein_coords_cb, aa, real_index= read_pdbs_case(case_protein_filename)        
     except:
         return None, None, None, None
 
-    
+   
     #print(case_protein_filename)
     # Produces a vector with all the possible amino acid correspondences based on the aa_des dictionary
     pc = active_site.get_possible_correspondences(protein_coords, aa, real_index)
@@ -372,6 +368,7 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
             cavity_coords, protein_coords, protein_coords_cb, seed_coords, valid_combinations,
             iterations, aa_des, aa, real_index, real_index_seed, aaCav, active, cavity_coords_used,cavity_coords_cb_used, config.aa_surrounding, config.threshold_combinations, 0)
 
+       
         if np.sum(distances) / len(solution) < config.threshold and len(solution) >= 3 and distances_arround < config.aa_surrounding_threshold:
             try:
                 rmsd, minrmsd, percentage,distancesal, indices= ActSeekLib.getGlobalDistance(t_transformed, seed_coords)
@@ -401,12 +398,18 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
             else:
                 sol_write = open(f"{config.random_dir}/{case_protein_name}.txt", "w")
 
+            #print("solutions",solution)
+
             strmapping = ""
-            for aamap in solution:
+            for aamap in solution:               
                 aa_protein = aa[real_index[aamap[0]]]
-                aa_cavity = aaCav[active[aamap[1]]]
-                strmapping = strmapping + str(real_index[aamap[0]]) + aa_protein + "-" + str(
-                    active[aamap[1]]) + aa_cavity + ";"
+                #print(aa_protein)
+                #print(active)
+                #print("aamap",aamap)
+                aa_cavity = aaCav[active[int(aamap[1])]]
+                #print(aa_cavity)
+                strmapping = strmapping + str(real_index[aamap[0]]) +"_"+ aa_protein + "-" + str(
+                    active[int(aamap[1])])  +"_"+ aa_cavity + ";"
 
 
             if config.KVFinder == True:                
@@ -586,15 +589,16 @@ def main():
 
 
         seed_protein = config.seed_protein_file
-        aa_active = [int(x) for x in config.active_site.split(",")]
+        aa_active = [str(x) for x in config.active_site.split(",")]
         #print(aa_active)
 
         if len(aa_active) < 3: 
             try:
                 radius = config.radius
                 seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed_with_radius(aa_active,
-                    seed_protein, radius)                 
+                    seed_protein, radius)                                
             except:
+                raise
                 print("Seed pdb file not found or the file is not readable.")
                 return
             amino_acids_used_for_search = np.array([0,1,2])
@@ -602,16 +606,18 @@ def main():
             try:
                 seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed(aa_active,
                     seed_protein)
+                #print(active_amino_acid_index) 
             except:
+                raise
                 print("Seed pdb file not found or the file is not readable.")
                 return
         
             amino_acids_used_for_search = np.array([int(x) for x in config.selected_active.split(",")])
-
+        #print(amino_acids_used_for_search)
         active_used_for_search = np.array([active_amino_acid_index[x] for x in amino_acids_used_for_search])
         active_coords_used_for_search = np.array([cavity_coords[x] for x in amino_acids_used_for_search])
         active_coords_cb_used_for_search = np.array([cavity_coords_cb[x] for x in amino_acids_used_for_search])
-
+        
         #print(active_used_for_search)
         # Creates an object of the class Active_side where all the information is added
         active_site = ActSeekLib.Active_site(active_used_for_search, active_amino_acids_dict, active_coords_used_for_search, config.aa_grouping, config.radius)
