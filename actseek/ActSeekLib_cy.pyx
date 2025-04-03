@@ -253,7 +253,6 @@ cdef class Active_site:
                 if amino_acid2.get_class() != "UNK":
                     known = amino_acid2
                     break            
-            
             for amino_acid1 in real_index.keys():                
                 try:
                     if self.amino_acid_groups[case_protein_amino_acids[real_index[amino_acid1]]] == known.get_class():
@@ -261,7 +260,7 @@ cdef class Active_site:
                             testing.append(amino_acid1)
                 except:
                     pass
-
+            
             for amino_acid1 in real_index.keys():
                 for amino_acid2 in self.amino_acid_list:
                     try:
@@ -270,13 +269,13 @@ cdef class Active_site:
                         elif amino_acid2.get_class() == "UNK":
                             isInside=False
                             for test in testing:
-                                if np.linalg.norm(case_protein[amino_acid1] - case_protein[test]) < self.radius:
+                                if np.linalg.norm(case_protein[int(amino_acid1.split("_")[0])] - case_protein[int(test.split("_")[0])]) < self.radius:
                                     isInside = True
                             if isInside:
                                 correspondences.append([amino_acid1, amino_acid2.get_index()])
 
-                    except:
-                        pass
+                    except Exception:
+                        traceback.print_exc()
 
 
         else:          
@@ -336,8 +335,12 @@ cdef class Active_site:
             if len(distinct_classes) < 3:
                 continue
 
+            distinct_classes = set(item[0].split("_")[0] for item in combo)           
+            if len(distinct_classes) < 3:
+                continue
+
             #print(distinct_classes, combo)
-            '''if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
+            '''if combo[0][0]=='291_A' and combo[1][0] == '292_A' and combo[2][0] == '293_A':
                 print(combo)
                 print(real_index[combo[0][0]])
                 print(real_index[combo[1][0]])
@@ -629,6 +632,7 @@ cpdef get_distance_around(cnp.ndarray case_protein_coords, cnp.ndarray search_pr
     for amino_acids_mapped in mapping:        
         case_protein_index = int(amino_acids_mapped[0].split("_")[0])
         #print(case_protein_index)
+        #print(search_real_index)
         search_index = int(search_real_index[search_indexes[int(amino_acids_mapped[1])]].split("_")[0])
         #print("case",  search_index)
         #print("len",len(search_protein_coords))

@@ -195,25 +195,26 @@ def read_pdbs_seed_with_radius(active_residue_indices, seed_pdb_path, radius):
     for model in parsed_seed_structure:
         for chain in model:
             for residue in chain:
-                seed_resid_to_array_index[str(residue.get_id()[1])+"_"+chain.get_id()] = index_counter
-                index_counter += 1
-
-                for atom in residue:
-                    if "CA" in atom.fullname:
-                        seed_ca_coords.append(atom.get_coord())
-
-                seed_residue_names[str(residue.get_id()[1])+"_"+chain.get_id()] = str(residue.get_resname())
-                if str(residue.get_id()[1])+"_"+chain.get_id() in active_residue_indices:
-                    active_site_seed_resids.append(str(residue.get_id()[1])+"_"+chain.get_id())
+                if str(residue.get_resname()) in config.aa_grouping:
+                    seed_resid_to_array_index[str(residue.get_id()[1])+"_"+chain.get_id()] = str(index_counter)+"_"+chain.get_id()
+                    index_counter += 1
 
                     for atom in residue:
                         if "CA" in atom.fullname:
-                            active_site_ca_coords.append(atom.get_coord())
-                        if "CB" in atom.fullname:
-                            active_site_cb_coords.append(atom.get_coord())
+                            seed_ca_coords.append(atom.get_coord())
 
-                    if residue.get_resname() == "GLY":
-                        active_site_cb_coords.append([-10000000, -10000000, -10000000])
+                    seed_residue_names[str(residue.get_id()[1])+"_"+chain.get_id()] = str(residue.get_resname())
+                    if str(residue.get_id()[1])+"_"+chain.get_id() in active_residue_indices:
+                        active_site_seed_resids.append(str(residue.get_id()[1])+"_"+chain.get_id())
+
+                        for atom in residue:
+                            if "CA" in atom.fullname:
+                                active_site_ca_coords.append(atom.get_coord())
+                            if "CB" in atom.fullname:
+                                active_site_cb_coords.append(atom.get_coord())
+
+                        if residue.get_resname() == "GLY":
+                            active_site_cb_coords.append([-10000000, -10000000, -10000000])
 
     for model in parsed_seed_structure:
         for chain in model:
@@ -225,7 +226,7 @@ def read_pdbs_seed_with_radius(active_residue_indices, seed_pdb_path, radius):
                         dist = np.linalg.norm(active_site_ca_coords[0] - atom.get_coord())
                         break
 
-                if dist < radius and dist > 0.02: 
+                if dist < radius and dist > 0.02 and str(residue.get_resname()) in config.aa_grouping:
                     active_site_seed_resids.append(str(residue.get_id()[1])+"_"+chain.get_id())
                     seed_residue_names[str(residue.get_id()[1])+"_"+chain.get_id()] = "UNK"
                     for atom in residue:
@@ -237,8 +238,7 @@ def read_pdbs_seed_with_radius(active_residue_indices, seed_pdb_path, radius):
                     if residue.get_resname() == "GLY":
                         active_site_cb_coords.append([-10000000, -10000000, -10000000])
 
-    
-
+   
     return (
         np.array(seed_ca_coords),
         np.array(active_site_ca_coords),
@@ -601,8 +601,7 @@ def main():
                 seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict = read_pdbs_seed_with_radius(aa_active,
                     seed_protein, radius)                                
             except:
-                raise
-                print("Seed pdb file not found or the file is not readable.")
+                print("Seed pdb file not found, the file is not readable.")
                 return
             amino_acids_used_for_search = np.array([0,1,2])
         else:
@@ -615,7 +614,7 @@ def main():
                 return
         
             amino_acids_used_for_search = np.array([int(x) for x in config.selected_active.split(",")])
-        #print(amino_acids_used_for_search)
+        #print("index",seed_coords, cavity_coords, cavity_coords_cb, active_amino_acids_dict, active_amino_acid_index, real_index_seed_dict)
         try:
             active_used_for_search = np.array([active_amino_acid_index[x] for x in amino_acids_used_for_search])
             active_coords_used_for_search = np.array([cavity_coords[x] for x in amino_acids_used_for_search])
