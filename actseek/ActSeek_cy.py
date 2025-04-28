@@ -374,7 +374,7 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
        
         if np.sum(distances) / len(solution) < config.threshold and len(solution) >= 3 and distances_arround < config.aa_surrounding_threshold:
             try:
-                rmsd, minrmsd, percentage,distancesal, indices= ActSeekLib.getGlobalDistance(t_transformed, seed_coords)
+                rmsd, minrmsd, percentage,distancesal, indices= ActSeekLib.getGlobalDistance(t_transformed, seed_coords, solution, active)
 
                 if config.KVFinder == True:
                     try:

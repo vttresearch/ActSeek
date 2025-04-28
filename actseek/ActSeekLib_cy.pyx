@@ -775,11 +775,14 @@ cpdef find_nearest_neighbors(cnp.ndarray vector_source, cnp.ndarray vector_targe
     n = len(vector_target)
     
    
-    dist_matrix = np.zeros((m, n))
+    dist_matrix = np.full((m, n), np.inf, dtype=float)
+    tree = KDTree(vector_target)
+
     for i in range(m):
-        for j in range(n):
-            dist = np.linalg.norm(np.array(vector_source[i]) - np.array(vector_target[j]))
-            dist_matrix[i][j] = dist
+        # Retrieve distances and indices for k=4 nearest neighbors
+        dists, idxs = tree.query(vector_source[i], k=4)
+        for dist, idx in zip(dists, idxs):
+            dist_matrix[i][idx] = dist
     
    
     score_matrix = (dist_matrix <= threshold).astype(int)
@@ -837,7 +840,7 @@ cpdef score(cnp.ndarray vector, int size):
     max_consecutive_chunk = 0
     chunk_count = 0
     current_chunk = 1
-
+   
     for i in range(1, len(vector)):
         if vector[i] == vector[i - 1] + 1:
             current_chunk += 1
@@ -848,7 +851,9 @@ cpdef score(cnp.ndarray vector, int size):
     # Check the last chunk
     if current_chunk > size:
         chunk_count += 1
-    score = (chunk_count*size) / len(vector)
+    
+    score = (chunk_count*size)+size 
+   
     return score
 
 
@@ -887,7 +892,7 @@ cpdef float score_vector(list vector):
 
     return total_score / total_weight
 
-cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2):
+cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2,solution, active_site):
     """
     This function calculates the nearest neighbors between two sets of coordinates, computes a score based on the indices of the nearest neighbors, and returns the score, the root mean square deviation (RMSD) normalized by coverage, and the coverage.
 
@@ -902,9 +907,28 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2):
     cdef float rmsd
     cdef float score
 
+
     try:
-        distances, indices= find_nearest_neighbors(coords1, coords2,2)        
-        score = score_vector(indices)
+        distances, indices= find_nearest_neighbors(coords1, coords2,2.0)      
+        mapping = []
+        for aa in solution:
+            mapping.append([int(aa[0].split("_")[0])+1, int(active_site[int(aa[1])].split("_")[0])])
+        
+      
+        areThere = 0
+        for mapp in mapping:
+            found = False
+            for index in indices:
+                if index[0] == mapp[0] and index[1] == mapp[1]:
+                    found = True
+                    break            
+            if found:
+                areThere += 1
+
+        if areThere > 1:
+            score = score_vector(indices)
+        else:
+            score = 0
 
 
         if len(indices) == 0:
