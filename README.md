@@ -122,7 +122,7 @@ To visualize the protein P45379 superpostion with the seed protein, I open the f
 
     "active_site": "292_A,448_A,478_A",
     
-    "selected_active": "0,1,2",
+    "selected_active": "0,1,2", #add only 3
     
     "aa_grouping": {
         "GLY": "GLY",
