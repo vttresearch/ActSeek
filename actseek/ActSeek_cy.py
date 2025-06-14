@@ -493,9 +493,7 @@ def process_protein(case_protein_name,
         if config.delete_protein_files == True:
             try:
                 os.remove(case_protein_filepath)
-            except:
-                traceback.print_exc()
-
+            except: 
                 pass
     except:
         pass
