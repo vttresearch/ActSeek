@@ -190,7 +190,11 @@ To perform a search where two or more amino acids can be in interchangeble, chan
 
 All the structures from the customized set can be downloaded into a folder that will be given to ActSeek using the parameter "alphafold_proteins_path". 
 The "protein_file" should contain the name of the proteins that you want to use in the search without the extension (one name in each line). 
+
 run actseek with the parameter -c:
 ```
 actseek -c -af "your_protein_path" -s "your_protein_list"
 ```
+# Publication
+
+Sandra Castillo, Osmo Henri Samuli Ollila, ActSeek: fast and accurate search algorithm of active sites in alphafold database, Bioinformatics, Volume 41, Issue 8, August 2025, btaf424, https://doi.org/10.1093/bioinformatics/btaf424
