@@ -470,7 +470,7 @@ def process_protein(case_protein_name,
     try:
         if config.custom == False:
             # Download the protein structure from alphafold database
-            case_protein_filename = f"AF-{case_protein_name}-F1-model_v4.pdb"
+            case_protein_filename = f"AF-{case_protein_name}-F1-model_v6.pdb"
             case_protein_filepath = f"{config.alphafold_proteins_path}/{case_protein_filename}"
 
             if os.path.isfile(case_protein_filepath) == False:
@@ -493,9 +493,7 @@ def process_protein(case_protein_name,
         if config.delete_protein_files == True:
             try:
                 os.remove(case_protein_filepath)
-            except:
-                traceback.print_exc()
-
+            except: 
                 pass
     except:
         pass
