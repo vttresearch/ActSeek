@@ -915,20 +915,20 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2,solution, activ
             mapping.append([int(aa[0].split("_")[0])+1, int(active_site[int(aa[1])].split("_")[0])])
         
       
-        areThere = 0
-        for mapp in mapping:
-            found = False
-            for index in indices:
-                if index[0] == mapp[0] and index[1] == mapp[1]:
-                    found = True
-                    break            
-            if found:
-                areThere += 1
+        #areThere = 0
+        #for mapp in mapping:
+        #    found = False
+        #    for index in indices:
+        #        if index[0] == mapp[0] and index[1] == mapp[1]:
+        #            found = True
+        #            break            
+        #    if found:
+        #        areThere += 1
 
-        if areThere > 1:
-            score = score_vector(indices)
-        else:
-            score = 0
+        #if areThere > 1:
+        score = score_vector(indices)
+        #else:
+        #    score = 0
 
 
         if len(indices) == 0:
