@@ -1,4 +1,8 @@
+If you use ActSeek in your research, please cite:
+
 Sandra Castillo, Osmo Henri Samuli Ollila, ActSeek: fast and accurate search algorithm of active sites in alphafold database, Bioinformatics, Volume 41, Issue 8, August 2025, btaf424, https://doi.org/10.1093/bioinformatics/btaf424
+
+--------------------
 
 @article{10.1093/bioinformatics/btaf424,
     author = {Castillo, Sandra and Ollila, Osmo Henri Samuli},
