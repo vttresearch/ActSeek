@@ -323,8 +323,12 @@ cdef class Active_site:
         cdef list distances1
         cdef list distances2
         cdef list distances3
+        cdef int idx1, idx2, idx3
+        cdef int max_coord_index
+        
         combinations = itertools.combinations(correspondences, 3)
         valid_combinations = []
+        max_coord_index = len(protein_coords) - 1
 
         real_index2 = {}
         for k,i in real_index.items():
@@ -335,53 +339,45 @@ cdef class Active_site:
             if len(distinct_classes) < 3:
                 continue
 
+            # Extract indices and validate they are within bounds
+            try:
+                idx1 = int(combo[0][0].split("_")[0])
+                idx2 = int(combo[1][0].split("_")[0])
+                idx3 = int(combo[2][0].split("_")[0])
+            except (ValueError, IndexError, TypeError):
+                continue
+            
+            # Skip combinations with out-of-bounds indices
+            if idx1 < 0 or idx1 > max_coord_index or \
+               idx2 < 0 or idx2 > max_coord_index or \
+               idx3 < 0 or idx3 > max_coord_index:
+                continue
+            
             distinct_classes = set(item[0].split("_")[0] for item in combo)           
             if len(distinct_classes) < 3:
                 continue
 
-            #print(distinct_classes, combo)
-            '''if combo[0][0]=='291_A' and combo[1][0] == '292_A' and combo[2][0] == '293_A':
-                print(combo)
-                print(real_index[combo[0][0]])
-                print(real_index[combo[1][0]])
-                print(real_index[combo[2][0]])'''
-            dist1 = self.calculate_distance_in_case_protein(int(combo[0][0].split("_")[0]), int(combo[1][0].split("_")[0]), protein_coords)
+            dist1 = self.calculate_distance_in_case_protein(idx1, idx2, protein_coords)
             if dist1 is None:
                 continue
-            '''if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
-                print(dist1)            
-
-                print(amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[0][0]]]])
-
-                print(amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[1][0]]]])'''
 
             distances1 = self.get_distances(amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[0][0]]]], amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[1][0]]]])  
-            #if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
-            #    print(dist1, distances1)       
             if not self.check_distances(dist1, distances1, threshold):
                 continue
 
-            dist2 = self.calculate_distance_in_case_protein(int(combo[1][0].split("_")[0]), int(combo[2][0].split("_")[0]), protein_coords)
+            dist2 = self.calculate_distance_in_case_protein(idx2, idx3, protein_coords)
             if dist2 == None:
                 continue
-            #if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
-            #    print(dist2) 
             distances2 = self.get_distances(amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[1][0]]]], amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[2][0]]]])
 
-            #if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
-            #    print(dist2, distances2)   
             if not self.check_distances(dist2, distances2, threshold):
                 continue
 
-            dist3 = self.calculate_distance_in_case_protein(int(combo[2][0].split("_")[0]), int(combo[0][0].split("_")[0]), protein_coords)
+            dist3 = self.calculate_distance_in_case_protein(idx3, idx1, protein_coords)
             if dist3 == None:
                 continue
-            #if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
-            #    print(dist3) 
             distances3 = self.get_distances(amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[2][0]]]], amino_acid_groups[case_protein_amino_acid_dict[real_index[combo[0][0]]]])
 
-            #if combo[0][0]=='155_A' and combo[1][0] == '531_B' and combo[2][0] == '533_B':
-            #    print(dist3, distances3)  
             if not self.check_distances(dist3, distances3, threshold):
                 continue
 
@@ -391,28 +387,50 @@ cdef class Active_site:
 
 
 
-cpdef euclidean_transformation_fit(cnp.ndarray search_alphac_coords, cnp.ndarray search_betac_coords, cnp.ndarray case_protein_alphac_coords, cnp.ndarray case_protein_betac_coords, list combinations, int index):
+cpdef euclidean_transformation_fit(cnp.ndarray search_alphac_coords, cnp.ndarray search_betac_coords, cnp.ndarray case_protein_alphac_coords, cnp.ndarray case_protein_betac_coords, list combinations, int index, dict real_index):
     cdef tuple selected_combination
     cdef list search_coords
     cdef list case_protein_coords
     cdef list pair
     cdef cnp.ndarray rotation
     cdef cnp.ndarray translation
+    cdef int case_idx
+    cdef int max_idx
 
     if index == -1:
         selected_combination = tuple(random.sample(combinations, 1))
         selected_combination = selected_combination[0]
     else:
         selected_combination = combinations[index]
+    
     search_coords = []
     case_protein_coords = []
+    max_idx = len(case_protein_alphac_coords) - 1
+    
     # take coordinates of more atoms
     for pair in selected_combination:
-        search_coords.append(search_alphac_coords[pair[1]])
-        case_protein_coords.append(case_protein_alphac_coords[int(pair[0].split("_")[0])])
-        if search_betac_coords[pair[1]][0] != -10000000 and case_protein_betac_coords[int(pair[0].split("_")[0])][0] != -10000000:
-            search_coords.append(search_betac_coords[pair[1]])
-            case_protein_coords.append(case_protein_betac_coords[int(pair[0].split("_")[0])])
+        try:
+            search_coords.append(search_alphac_coords[pair[1]])
+        except (IndexError, ValueError):
+            return None, None, None
+            
+        # pair[0] is array index string like "0_A", extract the integer directly
+        try:
+            case_idx = int(pair[0].split("_")[0])
+        except (ValueError, IndexError, TypeError, AttributeError):
+            return None, None, None
+        
+        # Validate index is within bounds with extra safety margin
+        if case_idx < 0 or case_idx > max_idx:
+            return None, None, None
+        
+        try:
+            case_protein_coords.append(case_protein_alphac_coords[case_idx])
+            if search_betac_coords[pair[1]][0] != -10000000 and case_protein_betac_coords[case_idx][0] != -10000000:
+                search_coords.append(search_betac_coords[pair[1]])
+                case_protein_coords.append(case_protein_betac_coords[case_idx])
+        except (IndexError, ValueError, TypeError):
+            return None, None, None
 
     translation_vector, rotation = estimate_alignment(case_protein_coords, search_coords)
 
@@ -552,11 +570,10 @@ def calculate_final_distance(search_alphac_coords_all, case_protein_alphac_coord
         Rotation matrix used for the transformation.
     """
     
-
     translation_vector, rotation, mapsel = euclidean_transformation_fit(search_alphac_coords, search_betac_coords, case_protein_alphac_coords, case_protein_betac_coords,
-                                                                        valid_combinations, index)
+                                                                        valid_combinations, index, None)
 
-    if rotation is None:
+    if rotation is None or translation_vector is None:
         return None, None, None, None, None, None
 
     t_transformed = case_protein_alphac_coords @ rotation + translation_vector
@@ -625,30 +642,51 @@ cpdef get_distance_around(cnp.ndarray case_protein_coords, cnp.ndarray search_pr
     """
 
     cdef list distances = []
-    cdef int i, search_index,case_protein_index
+    cdef int i, search_index, case_protein_index
     cdef float distance, mean_distances
+    cdef int case_max, search_max
+
+    case_max = len(case_protein_coords) - 1
+    search_max = len(search_protein_coords) - 1
 
     #print("mapping",mapping)
     for amino_acids_mapped in mapping:        
-        case_protein_index = int(amino_acids_mapped[0].split("_")[0])
-        #print(case_protein_index)
-        #print(search_real_index)
-        search_index = int(search_real_index[search_indexes[int(amino_acids_mapped[1])]].split("_")[0])
-        #print("case",  search_index)
-        #print("len",len(search_protein_coords))
+        try:
+            case_protein_index = int(amino_acids_mapped[0].split("_")[0])
+        except (ValueError, IndexError, TypeError):
+            continue
+            
+        # Validate index is within bounds
+        if case_protein_index < 0 or case_protein_index > case_max:
+            continue
+        
+        try:
+            search_index = int(search_real_index[search_indexes[int(amino_acids_mapped[1])]].split("_")[0])
+        except (ValueError, IndexError, TypeError, KeyError):
+            continue
+            
+        # Validate index is within bounds
+        if search_index < 0 or search_index > search_max:
+            continue
         
         for i in range(1, number_of_surrounding + 1):
             if case_protein_index - i >= 0 and search_index - i >= 0:
-                distance = np.linalg.norm(case_protein_coords[case_protein_index - i] - search_protein_coords[search_index - i])
-                distances.append(distance)
-                if printing == 1:
-                    print("minus", i, case_protein_index - i, search_index - i, case_protein_coords[case_protein_index - i], search_protein_coords[search_index - i], distance)
+                try:
+                    distance = np.linalg.norm(case_protein_coords[case_protein_index - i] - search_protein_coords[search_index - i])
+                    distances.append(distance)
+                    if printing == 1:
+                        print("minus", i, case_protein_index - i, search_index - i, case_protein_coords[case_protein_index - i], search_protein_coords[search_index - i], distance)
+                except (IndexError, ValueError):
+                    continue
 
-            if case_protein_index + i < len(case_protein_coords) and search_index + i < len(search_protein_coords):
-                distance = np.linalg.norm(case_protein_coords[case_protein_index + i] - search_protein_coords[search_index + i])
-                distances.append(distance)
-                if printing == 1:
-                    print("plus", i, case_protein_index + i, search_index + i, case_protein_coords[case_protein_index + i], search_protein_coords[search_index + i], distance)
+            if case_protein_index + i <= case_max and search_index + i <= search_max:
+                try:
+                    distance = np.linalg.norm(case_protein_coords[case_protein_index + i] - search_protein_coords[search_index + i])
+                    distances.append(distance)
+                    if printing == 1:
+                        print("plus", i, case_protein_index + i, search_index + i, case_protein_coords[case_protein_index + i], search_protein_coords[search_index + i], distance)
+                except (IndexError, ValueError):
+                    continue
 
     mean_distances = np.mean(distances) if distances else 0.0
     return np.sum(distances), mean_distances
@@ -915,20 +953,20 @@ cpdef getGlobalDistance(cnp.ndarray coords1, cnp.ndarray coords2,solution, activ
             mapping.append([int(aa[0].split("_")[0])+1, int(active_site[int(aa[1])].split("_")[0])])
         
       
-        areThere = 0
-        for mapp in mapping:
-            found = False
-            for index in indices:
-                if index[0] == mapp[0] and index[1] == mapp[1]:
-                    found = True
-                    break            
-            if found:
-                areThere += 1
+        #areThere = 0
+        #for mapp in mapping:
+        #    found = False
+        #    for index in indices:
+        #        if index[0] == mapp[0] and index[1] == mapp[1]:
+        #            found = True
+        #            break            
+        #    if found:
+        #        areThere += 1
 
-        if areThere > 1:
-            score = score_vector(indices)
-        else:
-            score = 0
+        #if areThere > 1:
+        score = score_vector(indices)
+        #else:
+        #    score = 0
 
 
         if len(indices) == 0:

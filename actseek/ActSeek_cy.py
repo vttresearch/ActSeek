@@ -52,16 +52,20 @@ def read_pdbs_case(case_protein_path):
     for model in pdb_structure:
         for chain in model:            
             for residue in chain:
-                for atom in residue:
-                    if "CA" in atom.fullname:
-                        ca_coords.append(atom.get_coord())
-                    if "CB" in atom.fullname:
-                        cb_coords.append(atom.get_coord())
-                if residue.get_resname() == "GLY":
-                    cb_coords.append([-10000000, -10000000, -10000000])
+                # Only process residues that are in aa_grouping
                 if str(residue.get_resname()) in config.aa_grouping:
                     residue_name_map[str(residue.get_id()[1])+'_'+chain.get_id()] = str(residue.get_resname())                
                     global_res_index[str(residue_counter)+"_"+chain.get_id()] = str(residue.get_id()[1])+"_"+chain.get_id()
+                    
+                    # Extract CA and CB coordinates only for valid residues
+                    for atom in residue:
+                        if "CA" in atom.fullname:
+                            ca_coords.append(atom.get_coord())
+                        if "CB" in atom.fullname:
+                            cb_coords.append(atom.get_coord())
+                    if residue.get_resname() == "GLY":
+                        cb_coords.append([-10000000, -10000000, -10000000])
+                    
                     residue_counter += 1
             
 
@@ -552,7 +556,11 @@ def parse_args():
         parser.add_argument("-c", "--custom",dest="custom", action="store_true", default=config['custom'],
                         help="Using a custom structure database not connected with Alphafold for the search.")
         parser.add_argument("-rd", "--radius", type=float, default=config['radius'],
-                            help="Threshold of the average distance of the mapped amino acids.")
+                            help="Threshold of the average distance of the mapped amino acids.")        
+        parser.add_argument("-mc", "--max_cores", type=int, default=config['max_cores'],
+                            help="Maximum number of CPU cores to use.")
+        
+        
         
         
         args = parser.parse_args()
@@ -696,21 +704,40 @@ def main():
 
             
             with tqdm(total=len(cases)) as pbar:
-                with concurrent.futures.ProcessPoolExecutor() as executor:
+                with concurrent.futures.ProcessPoolExecutor(max_workers=config.max_cores) as executor:
                     futures = [executor.submit(processProteinWithData, case) for case in cases]
                     for future  in concurrent.futures.as_completed(futures):
+                        try:
+                            future.result(timeout=30)  # Wait for each future with timeout
+                        except Exception as e:
+                            pass  # Handle exceptions from worker processes
                         pbar.update(1)
+                    
+                    # Explicitly wait for all futures to complete - no timeout to ensure all proteins finish
+                    concurrent.futures.wait(futures)
 
+            # Collect and merge results with proper error handling
             files = os.listdir(config.random_dir)
-            results = open(config.path_results+"/results.csv","w")
-            results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural local similarity, Structural RMSD, Percentage structural mapping,Cavity, Cavity distance, Cavity mapping (case:seed),Cavity mapping percentage\n")
-            for file in files:
-                f = open(config.random_dir+"/"+file, "r")
-                for line in f:
-                    results.write(line)
-                f.close()
-                os.remove(config.random_dir+"/"+file)
-            results.close()
+            if len(files) > 0:
+                results = open(config.path_results+"/results.csv","w")
+                results.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural local similarity, Structural RMSD, Percentage structural mapping,Cavity, Cavity distance, Cavity mapping (case:seed),Cavity mapping percentage\n")
+                for file in sorted(files):
+                    try:
+                        filepath = os.path.join(config.random_dir, file)
+                        with open(filepath, "r") as f:
+                            for line in f:
+                                results.write(line)
+                    except Exception as e:
+                        print(f"Error reading file {file}: {e}")
+                        continue
+                    finally:
+                        try:
+                            os.remove(filepath)
+                        except:
+                            pass
+                results.close()
+            else:
+                print("Warning: No result files found in temporary directory")
 
 
 if __name__ == '__main__':

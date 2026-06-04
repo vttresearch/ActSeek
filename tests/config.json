@@ -42,5 +42,6 @@
     "testing": "",
     "KVFinder": false,
     "custom": false,
-    "radius": 5.0
+    "radius": 5.0,
+    "max_cores":20
 }
