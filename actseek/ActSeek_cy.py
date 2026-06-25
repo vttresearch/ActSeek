@@ -398,7 +398,7 @@ def ActSeek_main(aa_des,  case_protein_filename, iterations, case_protein_name, 
             except:
                 traceback.print_exc()
 
-            if len(config.testing) > 4:
+            if len(config.testing) > 2:
                 sol_write = open(f"{config.path_results}/{case_protein_name}.csv", "w")
                 sol_write.write("Uniprot ID,Mapping,Average distance,Average distance AA arround, All distances,Structural local similarity, Structural RMSD, Percentage structural mapping,Cavity, Cavity distance, Cavity mapping (case:seed),Cavity mapping percentage\n")
                 print_protein(translation_vector, rotation, case_protein_filename, case_protein_name)
@@ -680,7 +680,7 @@ def main():
         )
 
        
-        if len(config.testing) > 4:
+        if len(config.testing) > 2:
             case_protein = config.testing
             processProteinWithData(case_protein)
         else:
